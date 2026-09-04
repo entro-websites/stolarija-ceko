@@ -180,15 +180,23 @@
   .tab-tl { top: 0; left: 0; border-radius: var(--r-card) 0 var(--r-card) 0; }
   .tab-br { right: 0; bottom: 0; border-radius: var(--r-card) 0 var(--r-card) 0; }
 
+  .hero-media .tab-br { border-radius: var(--r-card) 0 0 0; }
+
   /* ---------- hero ---------- */
 
-  .hero { padding-top: 20px; }
+  .hero { padding-top: 0; }
+
+  .hero .wrap {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   .hero-shell { position: relative; }
 
   .hero-media {
     position: relative;
-    border-radius: var(--r-media);
+    border-radius: 0;
     overflow: hidden;
     min-height: 820px;
     display: flex;
@@ -528,16 +536,10 @@
   .acc-item.open .acc-panel { display: block; }
 
   .acc-panel div {
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border: 1px solid var(--accent-line);
-    border-radius: var(--r-box);
-    background: var(--surface);
     color: var(--text-muted);
     font-size: 13.5px;
     line-height: 1.55;
+    max-width: 65ch;
   }
 
   /* ---------- marquee gallery ---------- */
@@ -632,16 +634,16 @@
 
   .footer-card {
     position: relative;
-    border-radius: var(--r-media);
+    border-radius: 0;
     overflow: hidden;
     min-height: 320px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 28px;
-    padding-bottom: 28px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left: 40px;
+    padding-right: 40px;
     color: #fff;
   }
 
@@ -726,7 +728,7 @@
     padding-left: 20px;
     padding-right: 28px;
     background: var(--surface);
-    border-radius: var(--r-media) 0 22px 0;
+    border-radius: 0 0 22px 0;
   }
 
   .navbar img { height: 34px; width: auto; }
@@ -781,7 +783,7 @@
       justify-content: space-between;
       gap: 16px;
       padding-right: 12px;
-      border-radius: var(--r-media) var(--r-media) 22px 22px;
+      border-radius: 0 0 22px 22px;
     }
 
     .nav-links { display: none; }
@@ -863,6 +865,8 @@
       padding-left: 22px;
       padding-right: 22px;
     }
+
+    .footer-note { margin-top: 14px; }
 
     .footer-mark { text-align: left; }
   }
@@ -1217,8 +1221,7 @@
 </main>
 
 <footer class="footer">
-  <div class="wrap">
-    <div class="footer-card">
+  <div class="footer-card">
       <img src="assets/doors-04-narrow_2500.jpg" alt="">
 
       <div class="footer-top">
@@ -1239,8 +1242,9 @@
         </nav>
         <p style="font-size:13px; opacity:0.85;">Nameštaj od masivnog drveta po meri</p>
       </div>
-    </div>
+  </div>
 
+  <div class="wrap">
     <p class="footer-note">Stolarija Čeko, Smederevo. Sva prava zadržana.</p>
   </div>
 </footer>
