@@ -180,18 +180,25 @@
   .tab-tl { top: 0; left: 0; border-radius: var(--r-card) 0 var(--r-card) 0; }
   .tab-br { right: 0; bottom: 0; border-radius: var(--r-card) 0 var(--r-card) 0; }
 
+  .hero-inner .tab-br { right: 20px; bottom: 0; border-radius: var(--r-card) 0 0 0; }
+
 
   /* ---------- hero ---------- */
 
-  .hero { padding-top: 20px; }
-
-  .hero-shell { position: relative; }
+  .hero { padding-top: 0; }
 
   .hero-media {
     position: relative;
-    border-radius: var(--r-media);
+    border-radius: 0;
     overflow: hidden;
     min-height: 820px;
+    display: flex;
+    align-items: stretch;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
   }
@@ -220,13 +227,9 @@
   }
 
   .hero-copy {
-    position: relative;
-    z-index: 2;
     width: 100%;
     padding-top: 40px;
     padding-bottom: 40px;
-    padding-left: 64px;
-    padding-right: 64px;
     color: #fff;
   }
 
@@ -290,13 +293,13 @@
 
   .arrow:hover { background: rgba(255, 255, 255, 0.3); }
 
-  .arrow-prev { left: 12px; }
-  .arrow-next { right: 12px; }
+  .arrow-prev { left: 20px; }
+  .arrow-next { right: 20px; }
 
   .dots {
     position: absolute;
     left: 50%;
-    bottom: 18px;
+    bottom: 20px;
     transform: translateX(-50%);
     z-index: 4;
     display: flex;
@@ -623,21 +626,29 @@
 
   /* ---------- footer ---------- */
 
-  .footer { padding-bottom: 24px; }
+  .footer { padding-bottom: 0; }
 
   .footer-card {
     position: relative;
-    border-radius: var(--r-media);
+    border-radius: 0;
     overflow: hidden;
     min-height: 340px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: stretch;
     padding-top: 28px;
     padding-bottom: 26px;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 0;
+    padding-right: 0;
     color: #fff;
+  }
+
+  .footer-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 32px;
   }
 
   .footer-card > img {
@@ -694,6 +705,8 @@
   }
 
   .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; font-size: 14px; }
+
+  .footer-tag { font-size: 13px; opacity: 0.85; }
 
   .footer-nav a { text-decoration: none; opacity: 0.85; transition: opacity 0.2s ease; }
 
@@ -833,8 +846,6 @@
     .hero-copy {
       padding-top: 92px;
       padding-bottom: 72px;
-      padding-left: 24px;
-      padding-right: 24px;
     }
 
     .hero-media .tab-br { display: none; }
@@ -858,11 +869,7 @@
 
     .mq-track img { height: 130px; }
 
-    .footer-card {
-      min-height: 280px;
-      padding-left: 22px;
-      padding-right: 22px;
-    }
+    .footer-card { min-height: 280px; }
 
     .footer-note { margin-top: 16px; }
 
@@ -875,87 +882,83 @@
 <main>
 
   <section class="hero" id="pocetna">
-    <div class="wrap">
-      <div class="hero-shell">
+    <div class="hero-media">
+      <div class="slide on" data-slide>
+        <img src="assets/kitchen-55_2500.jpg" alt="Ugaona bela kuhinja po meri sa ugradnom rernom i drvenim podom">
+      </div>
+      <div class="slide" data-slide>
+        <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja po meri sa drvenom radnom pločom i visećom rasvetom">
+      </div>
+      <div class="slide" data-slide>
+        <img src="assets/id-03-example_2000.jpg" alt="Garderober po meri sa policama i drvenim pregradnim zidom">
+      </div>
 
-        <div class="hero-media">
-          <div class="slide on" data-slide>
-            <img src="assets/kitchen-55_2500.jpg" alt="Ugaona bela kuhinja po meri sa ugradnom rernom i drvenim podom">
-          </div>
-          <div class="slide" data-slide>
-            <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja po meri sa drvenom radnom pločom i visećom rasvetom">
-          </div>
-          <div class="slide" data-slide>
-            <img src="assets/id-03-example_2000.jpg" alt="Garderober po meri sa policama i drvenim pregradnim zidom">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <div class="title-stack">
+            <h1 class="on" data-title>Pravo drvo.<br>Prava mera.</h1>
+            <p class="title" data-title>Kuhinja koju<br>merimo kod tebe.</p>
+            <p class="title" data-title>Ormani koji<br>koriste svaki ugao.</p>
           </div>
 
-          <div class="hero-copy">
-            <div class="title-stack">
-              <h1 class="on" data-title>Pravo drvo.<br>Prava mera.</h1>
-              <p class="title" data-title>Kuhinja koju<br>merimo kod tebe.</p>
-              <p class="title" data-title>Ormani koji<br>koriste svaki ugao.</p>
+          <div class="hero-facts">
+            <div>
+              <h2>Po meri</h2>
+              <p>Merimo na licu mesta pre nego što počnemo izradu.</p>
             </div>
-
-            <div class="hero-facts">
-              <div>
-                <h2>Po meri</h2>
-                <p>Merimo na licu mesta pre nego što počnemo izradu.</p>
-              </div>
-              <div>
-                <h2>Masivno drvo</h2>
-                <p>Radimo sa masivnim drvetom i pravim furnirom.</p>
-              </div>
+            <div>
+              <h2>Masivno drvo</h2>
+              <p>Radimo sa masivnim drvetom i pravim furnirom.</p>
             </div>
-
-            <a class="btn" href="#kontakt">
-              Pošalji upit
-              <span class="dot" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-              </span>
-            </a>
           </div>
 
-          <button class="arrow arrow-prev" type="button" data-prev aria-label="Prethodna slika">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
-          </button>
-          <button class="arrow arrow-next" type="button" data-next aria-label="Sledeća slika">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
-          </button>
-
-          <div class="dots" id="dots" role="tablist" aria-label="Izbor slike u herou"></div>
-
-          <a class="tab tab-br" href="#galerija">
-            Pogledaj galeriju radova
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+          <a class="btn" href="#kontakt">
+            Pošalji upit
+            <span class="dot" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </span>
           </a>
         </div>
 
-        <div class="navbar">
-          <a href="#pocetna" aria-label="Stolarija Čeko, vrh strane">
-            <img src="assets/logo.png" alt="Logo Stolarije Čeko sa motivom testere i drveta">
-          </a>
+        <button class="arrow arrow-prev" type="button" data-prev aria-label="Prethodna slika">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
+        </button>
+        <button class="arrow arrow-next" type="button" data-next aria-label="Sledeća slika">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+        </button>
 
-          <nav class="nav-links" aria-label="Glavna navigacija">
-            <a href="#usluge">Usluge</a>
-            <a href="#vrata">Vrata</a>
-            <a href="#o-nama">O nama</a>
-            <a href="#galerija">Galerija</a>
-            <a href="#kontakt">Kontakt</a>
-          </nav>
+        <div class="dots" id="dots" role="tablist" aria-label="Izbor slike u herou"></div>
 
-          <button class="burger" id="burger" type="button" aria-label="Otvori meni" aria-expanded="false" aria-controls="navPanel">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
-          </button>
+        <a class="tab tab-br" href="#galerija">
+          Pogledaj galeriju radova
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+        </a>
+      </div>
 
-          <div class="nav-panel" id="navPanel">
-            <a href="#usluge">Usluge</a>
-            <a href="#vrata">Vrata</a>
-            <a href="#o-nama">O nama</a>
-            <a href="#galerija">Galerija</a>
-            <a href="#kontakt">Kontakt</a>
-          </div>
+      <div class="navbar">
+        <a href="#pocetna" aria-label="Stolarija Čeko, vrh strane">
+          <img src="assets/logo.png" alt="Logo Stolarije Čeko sa motivom testere i drveta">
+        </a>
+
+        <nav class="nav-links" aria-label="Glavna navigacija">
+          <a href="#usluge">Usluge</a>
+          <a href="#vrata">Vrata</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#galerija">Galerija</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <button class="burger" id="burger" type="button" aria-label="Otvori meni" aria-expanded="false" aria-controls="navPanel">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+        </button>
+
+        <div class="nav-panel" id="navPanel">
+          <a href="#usluge">Usluge</a>
+          <a href="#vrata">Vrata</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#galerija">Galerija</a>
+          <a href="#kontakt">Kontakt</a>
         </div>
-
       </div>
     </div>
   </section>
@@ -1130,8 +1133,7 @@
       <p class="lede rv" style="margin-top:16px; max-width:70ch;">Kuhinje, vrata, kreveti i ormani isporučeni domaćinstvima u Smederevu i okolini. Sve mereno na licu mesta i montirano kod kupca.</p>
     </div>
 
-    <div class="wrap">
-      <div class="mq-wrap">
+    <div class="mq-wrap">
       <div class="mq mq-1">
         <div class="mq-track">
           <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja sa belim frontovima i drvenom radnom pločom">
@@ -1182,7 +1184,6 @@
           <img src="assets/doors-02-narrow_2500.jpg" alt="">
         </div>
       </div>
-      </div>
     </div>
   </section>
 
@@ -1221,10 +1222,10 @@
 </main>
 
 <footer class="footer">
-  <div class="wrap">
-    <div class="footer-card">
-      <img src="assets/doors-04-narrow_2500.jpg" alt="">
+  <div class="footer-card">
+    <img src="assets/doors-04-narrow_2500.jpg" alt="">
 
+    <div class="wrap footer-inner">
       <div class="footer-top">
         <span class="footer-chip">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
@@ -1241,7 +1242,7 @@
           <a href="#galerija">Galerija</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
-        <p style="font-size:13px; opacity:0.85;">Nameštaj od masivnog drveta po meri</p>
+        <p class="footer-tag">Nameštaj od masivnog drveta po meri</p>
       </div>
 
       <p class="footer-note">Stolarija Čeko, Smederevo. Sva prava zadržana.</p>
