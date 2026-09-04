@@ -2,858 +2,1161 @@
 <html lang="sr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stolarija Čeko - nameštaj od drveta po meri, Smederevo</title>
-<meta name="description" content="Stolarija Čeko iz Smedereva pravi kuhinje, vrata, stepenice, krevete i ormane od masivnog drveta po tačnoj meri tvog prostora.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stolarija Čeko - nameštaj od masivnog drveta po meri, Smederevo</title>
+<meta name="description" content="Kuhinje, vrata, stepenice, kreveti i ormani od masivnog drveta. Merimo kod tebe, pravimo u radionici u Smederevu i montiramo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --accent:#6b4226;
-    --accent-dark:#4a2d1a;
-    --accent-light:#8a5a3a;
-    --accent-soft:#f4ede6;
-    --accent-soft2:#e9dccd;
-    --accent-glow:rgba(107,66,38,0.16);
-    --text:#241b15;
-    --text-muted:rgba(36,27,21,0.68);
-    --text-faint:rgba(36,27,21,0.46);
-    --bg:#fefcfb;
-    --border:rgba(107,66,38,0.16);
-    --radius-btn:4px;
-    --radius-card:16px;
+  :root {
+    --accent: #6b4226;
+    --accent-dark: #4a2c18;
+    --accent-soft: #ece3da;
+    --accent-line: rgba(107, 66, 38, 0.16);
+    --accent-glow: rgba(107, 66, 38, 0.10);
+
+    --bg: #f5f2ee;
+    --surface: #ffffff;
+    --text: #1c1815;
+    --text-muted: #5c5450;
+    --text-faint: #8d8580;
+
+    --r-card: 24px;
+    --r-media: 20px;
+    --r-pill: 999px;
+
+    --font-display: "Outfit", "Trebuchet MS", sans-serif;
+    --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
   }
 
-  *{ box-sizing:border-box; margin:0; padding:0; }
+  * { box-sizing: border-box; }
 
-  html{ scroll-behavior:smooth; }
-
-  body{
-    font-family:'Open Sans', sans-serif;
-    color:var(--text);
-    background:var(--bg);
-    line-height:1.6;
-    font-weight:400;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 104px;
   }
 
-  h1,h2,h3,h4{
-    font-family:'Playfair Display', serif;
-    color:var(--text);
-    line-height:1.2;
-    font-weight:700;
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
   }
 
-  a{ color:inherit; text-decoration:none; }
-  img{ max-width:100%; display:block; }
-  ul{ list-style:none; }
+  img { display: block; max-width: 100%; }
 
-  .wrap{
-    max-width:1280px;
-    margin:0 auto;
-    padding-left:24px;
-    padding-right:24px;
-  }
-
-  @media (max-width:768px){
-    .wrap{ padding-left:20px; padding-right:20px; }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0;
   }
 
-  p.lead{
-    max-width:65ch;
-    color:var(--text-muted);
-    font-size:1.05rem;
+  p { margin: 0; }
+
+  a { color: inherit; }
+
+  /* ---------- layout ---------- */
+
+  .wrap {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
-  /* Buttons */
-  .btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    padding:14px 28px;
-    border-radius:var(--radius-btn);
-    font-weight:700;
-    font-size:0.95rem;
-    border:2px solid transparent;
-    cursor:pointer;
-    transition:transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
-    white-space:nowrap;
-  }
-  .btn-primary{
-    background:var(--accent);
-    color:#fff;
-  }
-  .btn-primary:hover{
-    background:var(--accent-dark);
-    box-shadow:0 12px 28px -12px var(--accent-glow);
-    transform:translateY(-2px);
-  }
-  .btn-outline{
-    background:transparent;
-    border-color:var(--accent);
-    color:var(--accent);
-  }
-  .btn-outline:hover{
-    background:var(--accent-soft);
-    transform:translateY(-2px);
-  }
-  .btn-light{
-    background:#fff;
-    color:var(--accent-dark);
-  }
-  .btn-light:hover{
-    background:var(--accent-soft);
-    transform:translateY(-2px);
+  .section {
+    padding-top: 120px;
+    padding-bottom: 120px;
   }
 
-  /* Header */
-  .site-header{
-    position:sticky;
-    top:0;
-    z-index:100;
-    background:#fff;
-    border-bottom:1px solid transparent;
-    transition:background 0.25s ease, backdrop-filter 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-  }
-  .site-header.scrolled{
-    background:rgba(254,252,251,0.86);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-    border-bottom-color:var(--border);
-    box-shadow:0 4px 20px -12px rgba(36,27,21,0.15);
-  }
-  .header-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    height:84px;
-  }
-  .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-family:'Playfair Display', serif;
-    font-weight:700;
-    font-size:1.25rem;
-    color:var(--accent-dark);
-  }
-  .logo img{
-    height:52px;
-    width:auto;
-  }
-  nav.desktop-nav{
-    display:flex;
-    align-items:center;
-    gap:36px;
-  }
-  nav.desktop-nav a{
-    font-size:0.95rem;
-    font-weight:600;
-    color:var(--text);
-    position:relative;
-    padding-bottom:4px;
-  }
-  nav.desktop-nav a:hover{ color:var(--accent); }
-  .header-cta{ display:flex; align-items:center; gap:24px; }
-
-  .hamburger{
-    display:none;
-    flex-direction:column;
-    gap:5px;
-    background:none;
-    border:none;
-    cursor:pointer;
-    padding:8px;
-  }
-  .hamburger span{
-    width:26px;
-    height:2px;
-    background:var(--accent-dark);
-    display:block;
-    transition:transform 0.25s ease, opacity 0.25s ease;
-  }
-  .hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-  .hamburger.open span:nth-child(2){ opacity:0; }
-  .hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-
-  .mobile-menu{
-    display:none;
-    position:fixed;
-    top:84px;
-    left:0;
-    right:0;
-    bottom:0;
-    background:#fff;
-    z-index:99;
-    padding:32px 24px;
-    flex-direction:column;
-    gap:8px;
-    overflow-y:auto;
-  }
-  .mobile-menu.active{ display:flex; }
-  .mobile-menu a{
-    font-size:1.15rem;
-    font-weight:700;
-    padding:14px 4px;
-    border-bottom:1px solid var(--border);
-    color:var(--text);
-  }
-  .mobile-menu .btn{ margin-top:20px; width:100%; }
-
-  @media (max-width:991px){
-    nav.desktop-nav, .header-cta{ display:none; }
-    .hamburger{ display:flex; }
+  .lede {
+    max-width: 65ch;
+    color: var(--text-muted);
+    font-size: 17px;
   }
 
-  /* Reveal */
-  .reveal{
-    opacity:1;
-    transform:translateY(12px);
-    transition:transform 0.6s ease, opacity 0.6s ease;
-  }
-  .reveal.in-view{
-    transform:translateY(0);
-    opacity:1;
-  }
-
-  /* Hero */
-  .hero{
-    position:relative;
-    min-height:88vh;
-    display:flex;
-    align-items:center;
-    background:linear-gradient(180deg, rgba(36,27,21,0.72), rgba(36,27,21,0.58)), url('assets/kitchen-55_2500.jpg') center/cover no-repeat;
-    color:#fff;
-  }
-  .hero-inner{
-    max-width:720px;
-    padding-top:80px;
-    padding-bottom:80px;
-  }
-  .hero-eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:rgba(255,255,255,0.14);
-    border:1px solid rgba(255,255,255,0.3);
-    padding:8px 16px;
-    border-radius:999px;
-    font-size:0.8rem;
-    font-weight:700;
-    letter-spacing:0.06em;
-    text-transform:uppercase;
-    margin-bottom:24px;
-  }
-  .hero h1{
-    color:#fff;
-    font-size:clamp(2.4rem, 5.2vw, 3.6rem);
-    font-weight:800;
-    margin-bottom:22px;
-  }
-  .hero p.lead{
-    color:rgba(255,255,255,0.88);
-    font-size:1.15rem;
-    max-width:52ch;
-    margin-bottom:36px;
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
   }
 
-  /* Pain section */
-  .pain{
-    background:var(--accent-soft);
-    padding-top:64px;
-    padding-bottom:64px;
-    border-bottom:1px solid var(--border);
-  }
-  .pain .wrap{ max-width:840px; text-align:center; }
-  .pain p{
-    font-size:1.15rem;
-    color:var(--text);
-    font-weight:600;
-    max-width:none;
+  .h-xl { font-size: clamp(40px, 6.4vw, 76px); }
+  .h-lg { font-size: clamp(32px, 4.4vw, 52px); }
+  .h-md { font-size: clamp(24px, 2.8vw, 34px); }
+
+  /* ---------- buttons ---------- */
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 24px;
+    padding-right: 10px;
+    border: 1px solid var(--accent);
+    border-radius: var(--r-pill);
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
   }
 
-  /* Section generic */
-  section.block{
-    padding-top:96px;
-    padding-bottom:96px;
-  }
-  @media (max-width:768px){
-    section.block{ padding-top:64px; padding-bottom:64px; }
+  .btn:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    transform: translateY(-1px);
   }
 
-  .section-head{
-    max-width:640px;
-    margin-bottom:56px;
-  }
-  .eyebrow{
-    display:inline-block;
-    color:var(--accent);
-    font-weight:700;
-    font-size:0.82rem;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    margin-bottom:14px;
-  }
-  .section-head h2{
-    font-size:clamp(1.8rem, 3.4vw, 2.6rem);
-    margin-bottom:16px;
+  .btn .dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--r-pill);
+    background: #fff;
+    color: var(--accent);
+    flex: none;
   }
 
-  /* Services grid */
-  .services-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:24px;
-  }
-  @media (max-width:991px){
-    .services-grid{ grid-template-columns:repeat(2, 1fr); }
-  }
-  @media (max-width:560px){
-    .services-grid{ grid-template-columns:1fr; }
+  .btn-ghost {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.55);
+    color: #fff;
   }
 
-  .service-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:var(--radius-card);
-    padding:32px 26px;
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-    transition:box-shadow 0.25s ease, transform 0.25s ease;
-  }
-  .service-card:hover{
-    box-shadow:0 24px 48px -28px rgba(36,27,21,0.28);
-    transform:translateY(-4px);
-  }
-  .service-card .icon-wrap{
-    width:52px;
-    height:52px;
-    border-radius:12px;
-    background:var(--accent-soft);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .service-card svg{ width:26px; height:26px; }
-  .service-card h3{
-    font-size:1.15rem;
-  }
-  .service-card p{
-    color:var(--text-muted);
-    font-size:0.94rem;
-    max-width:none;
-  }
-  .service-card.tool-card{
-    background:var(--accent);
-    color:#fff;
-    border-color:var(--accent);
-  }
-  .service-card.tool-card .icon-wrap{ background:rgba(255,255,255,0.16); }
-  .service-card.tool-card svg{ stroke:#fff; }
-  .service-card.tool-card h3{ color:#fff; }
-  .service-card.tool-card p{ color:rgba(255,255,255,0.85); }
-  .service-card.tool-card .btn{ align-self:flex-start; margin-top:4px; }
-
-  /* Gallery */
-  .gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:22px;
-  }
-  @media (max-width:768px){
-    .gallery-grid{ grid-template-columns:repeat(2, 1fr); }
-  }
-  @media (max-width:480px){
-    .gallery-grid{ grid-template-columns:1fr; }
-  }
-  .gallery-item{
-    position:relative;
-    border-radius:var(--radius-card);
-    overflow:hidden;
-    aspect-ratio:4/3;
-    border:1px solid var(--border);
-  }
-  .gallery-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform 0.4s ease;
-  }
-  .gallery-item:hover img{ transform:scale(1.05); }
-  .gallery-caption{
-    position:absolute;
-    left:0; right:0; bottom:0;
-    padding:16px;
-    background:linear-gradient(0deg, rgba(36,27,21,0.75), rgba(36,27,21,0));
-    color:#fff;
-    font-weight:700;
-    font-size:0.92rem;
-  }
-  .gallery-cta{
-    margin-top:44px;
-    text-align:center;
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
   }
 
-  /* About */
-  .about-section{
-    background:var(--accent-soft);
+  .btn-ghost .dot {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    color: #fff;
   }
-  .about-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-    align-items:center;
-  }
-  @media (max-width:900px){
-    .about-grid{ grid-template-columns:1fr; }
-  }
-  .about-photo{
-    background:var(--accent-soft2);
-    border:1px dashed var(--accent);
-    border-radius:var(--radius-card);
-    aspect-ratio:4/3;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--accent-dark);
-    font-weight:700;
-    text-align:center;
-    padding:24px;
-  }
-  .about-text h2{ margin-bottom:20px; }
-  .about-text p{
-    color:var(--text-muted);
-    margin-bottom:16px;
-    max-width:56ch;
-  }
-  .about-points{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    margin-top:28px;
-  }
-  .about-point{
-    display:flex;
-    align-items:flex-start;
-    gap:12px;
-  }
-  .about-point svg{
-    width:22px; height:22px; flex-shrink:0; margin-top:2px;
-  }
-  .about-point span{ font-weight:600; }
 
-  /* Contact */
-  .contact-section{
-    position:relative;
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 14px;
+    padding-right: 14px;
+    border-radius: var(--r-pill);
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
   }
-  .contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-  }
-  @media (max-width:900px){
-    .contact-grid{ grid-template-columns:1fr; }
-  }
-  .contact-info h2{ margin-bottom:18px; }
-  .contact-info p{
-    color:var(--text-muted);
-    margin-bottom:28px;
-    max-width:50ch;
-  }
-  .info-row{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin-bottom:18px;
-    font-weight:600;
-  }
-  .info-row svg{ width:22px; height:22px; flex-shrink:0; }
 
-  .contact-form{
-    background:var(--accent-soft);
-    border:1px solid var(--border);
-    border-radius:var(--radius-card);
-    padding:36px;
-  }
-  .form-row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:16px;
-    margin-bottom:16px;
-  }
-  @media (max-width:520px){
-    .form-row{ grid-template-columns:1fr; }
-  }
-  .contact-form label{
-    display:block;
-    font-size:0.85rem;
-    font-weight:700;
-    margin-bottom:6px;
-    color:var(--text);
-  }
-  .contact-form input, .contact-form textarea{
-    width:100%;
-    padding:13px 14px;
-    border-radius:var(--radius-btn);
-    border:1px solid var(--border);
-    font-family:'Open Sans', sans-serif;
-    font-size:0.95rem;
-    background:#fff;
-    color:var(--text);
-  }
-  .contact-form input:focus, .contact-form textarea:focus{
-    outline:2px solid var(--accent-light);
-    outline-offset:1px;
-  }
-  .contact-form textarea{ min-height:130px; resize:vertical; margin-bottom:22px; }
-  .field-group{ margin-bottom:16px; }
-  .contact-form .btn{ width:100%; }
+  /* ---------- nav ---------- */
 
-  /* Footer */
-  footer{
-    background:var(--accent-dark);
-    color:rgba(255,255,255,0.85);
-    padding-top:56px;
-    padding-bottom:32px;
+  .nav {
+    position: fixed;
+    top: 16px;
+    left: 0;
+    right: 0;
+    z-index: 50;
   }
-  .footer-top{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:space-between;
-    gap:36px;
-    padding-bottom:36px;
-    border-bottom:1px solid rgba(255,255,255,0.14);
-    margin-bottom:24px;
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: var(--r-pill);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 10px 40px rgba(28, 24, 21, 0.10);
   }
-  .footer-logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-family:'Playfair Display', serif;
-    font-size:1.2rem;
-    font-weight:700;
-    color:#fff;
+
+  .brand { display: flex; align-items: center; }
+  .brand img { height: 36px; width: auto; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
   }
-  .footer-logo img{ height:48px; filter:brightness(0) invert(1); }
-  .footer-nav{
-    display:flex;
-    gap:28px;
-    flex-wrap:wrap;
+
+  .nav-links a {
+    font-size: 15px;
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.2s ease;
   }
-  .footer-nav a{
-    font-size:0.92rem;
-    font-weight:600;
-    color:rgba(255,255,255,0.8);
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta { display: inline-flex; }
+
+  .burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: var(--r-pill);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
   }
-  .footer-nav a:hover{ color:#fff; }
-  .footer-bottom{
-    font-size:0.82rem;
-    color:rgba(255,255,255,0.55);
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:10px;
+
+  .nav-panel { display: none; }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    padding-top: 84px;
+    padding-bottom: 0;
+  }
+
+  .hero-media {
+    position: relative;
+    border-radius: var(--r-card);
+    overflow: hidden;
+    min-height: 660px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-media > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(20, 15, 11, 0.82) 0%, rgba(20, 15, 11, 0.55) 38%, rgba(20, 15, 11, 0.08) 72%);
+  }
+
+  .hero-body {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding-top: 56px;
+    padding-bottom: 56px;
+    padding-left: 48px;
+    padding-right: 48px;
+    color: #fff;
+  }
+
+  .hero-body h1 {
+    font-size: clamp(44px, 6.6vw, 80px);
+    max-width: 12ch;
+  }
+
+  .hero-sub {
+    margin-top: 20px;
+    max-width: 46ch;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 17px;
+  }
+
+  .hero-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 220px));
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+  }
+
+  .hero-facts h2 {
+    font-size: 22px;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  .hero-facts p {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: 36px;
+  }
+
+  .hero-corner {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    z-index: 3;
+  }
+
+  /* ---------- services ---------- */
+
+  .head-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .head-row .lede { margin-top: 16px; }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-media {
+    position: relative;
+    border-radius: var(--r-media);
+    overflow: hidden;
+    aspect-ratio: 5 / 4;
+  }
+
+  .card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .card:hover .card-media img { transform: scale(1.03); }
+
+  .card-media .pill {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+  }
+
+  .card-note {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--accent-line);
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+
+  .more-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 48px;
+    margin-top: 64px;
+  }
+
+  .more-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid var(--accent-line);
+  }
+
+  .more-item svg { flex: none; margin-top: 4px; color: var(--accent); }
+
+  .more-item h3 { font-size: 20px; font-weight: 400; }
+
+  .more-item p {
+    margin-top: 4px;
+    color: var(--text-muted);
+    font-size: 15px;
+  }
+
+  /* ---------- feature ---------- */
+
+  .feature { text-align: center; }
+
+  .feature .h-lg { margin-top: 16px; }
+
+  .feature .lede {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature-media {
+    position: relative;
+    margin-top: 48px;
+    border-radius: var(--r-card);
+    overflow: hidden;
+    min-height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-media > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .feature-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(20, 15, 11, 0.28) 0%, rgba(20, 15, 11, 0.68) 100%);
+  }
+
+  .feature-body {
+    position: relative;
+    z-index: 2;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+    color: #fff;
+  }
+
+  .feature-body .pill { background: rgba(28, 24, 21, 0.78); color: #fff; }
+
+  .feature-body h3 { margin-top: 20px; color: #fff; }
+
+  .feature-body .btn { margin-top: 28px; }
+
+  /* ---------- about ---------- */
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    margin-top: 56px;
+    align-items: start;
+  }
+
+  .placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--r-media);
+    background: #ddd8d2;
+    color: #6f6862;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .acc { margin-top: 32px; }
+
+  .acc-item { border-top: 1px solid var(--accent-line); }
+
+  .acc-item:last-child { border-bottom: 1px solid var(--accent-line); }
+
+  .acc-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .acc-head svg { flex: none; color: var(--accent); }
+
+  .acc-head svg .bar-v { transition: opacity 0.25s ease; }
+
+  .acc-item.open .acc-head svg .bar-v { opacity: 0; }
+
+  .acc-panel {
+    display: none;
+    padding-bottom: 24px;
+    color: var(--text-muted);
+    font-size: 15px;
+    max-width: 65ch;
+  }
+
+  .acc-item.open .acc-panel { display: block; }
+
+  /* ---------- gallery ---------- */
+
+  .gallery-head { text-align: center; }
+
+  .gallery-head .h-lg { margin-top: 16px; }
+
+  .gallery-head .lede {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .grid-6 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 56px;
+  }
+
+  .shot {
+    position: relative;
+    border-radius: var(--r-media);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 2px 20px rgba(28, 24, 21, 0.06);
+    transition: box-shadow 0.35s ease, transform 0.35s ease;
+  }
+
+  .shot:hover {
+    box-shadow: 0 18px 48px rgba(28, 24, 21, 0.14);
+    transform: translateY(-3px);
+  }
+
+  .shot img { width: 100%; height: 100%; object-fit: cover; }
+
+  .shot span {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    border-radius: var(--r-pill);
+    background: rgba(255, 255, 255, 0.92);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* ---------- contact ---------- */
+
+  .contact {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    width: 900px;
+    height: 900px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(107, 66, 38, 0) 65%);
+    pointer-events: none;
+  }
+
+  .contact .wrap { position: relative; z-index: 1; }
+
+  .contact-head { text-align: center; }
+
+  .contact-head .h-lg { margin-top: 16px; }
+
+  .contact-head .lede {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .form {
+    max-width: 640px;
+    margin-top: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 16px;
+  }
+
+  .field { display: grid; gap: 8px; }
+
+  .field label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  .field input,
+  .field textarea {
+    width: 100%;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 1px solid var(--accent-line);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+  }
+
+  .field textarea { min-height: 132px; resize: vertical; }
+
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  .form .btn { justify-self: start; margin-top: 8px; }
+
+  /* ---------- footer ---------- */
+
+  .footer { padding-bottom: 32px; }
+
+  .footer-card {
+    border-radius: var(--r-card);
+    background: var(--accent-dark);
+    color: rgba(255, 255, 255, 0.82);
+    padding-top: 56px;
+    padding-bottom: 40px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .footer-card .mark {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
+
+  .footer-card .sub {
+    margin-top: 12px;
+    max-width: 46ch;
+    font-size: 15px;
+  }
+
+  .footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 14px;
+  }
+
+  .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  .footer-nav a { text-decoration: none; }
+
+  .footer-nav a:hover { color: #fff; }
+
+  /* ---------- reveal ---------- */
+
+  .rv { transition: transform 0.6s ease; }
+
+  .rv.in { transform: translateY(0); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .rv.pending { transform: translateY(12px); }
+  }
+
+  /* ---------- responsive ---------- */
+
+  @media (max-width: 1100px) {
+    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .about-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 991px) {
+    .nav-links,
+    .nav-cta { display: none; }
+
+    .burger { display: inline-flex; }
+
+    .nav-panel {
+      display: none;
+      margin-top: 12px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: var(--r-card);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 16px 48px rgba(28, 24, 21, 0.14);
+    }
+
+    .nav-panel.open { display: block; }
+
+    .nav-panel a {
+      display: block;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      font-size: 17px;
+      text-decoration: none;
+      border-bottom: 1px solid var(--accent-line);
+    }
+
+    .nav-panel .btn {
+      display: inline-flex;
+      margin-top: 16px;
+      border-bottom: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .wrap { padding-left: 20px; padding-right: 20px; }
+
+    .section { padding-top: 72px; padding-bottom: 72px; }
+
+    .hero { padding-top: 76px; }
+
+    .hero-media { min-height: 560px; }
+
+    .hero-shade {
+      background: linear-gradient(180deg, rgba(20, 15, 11, 0.74) 0%, rgba(20, 15, 11, 0.62) 48%, rgba(20, 15, 11, 0.80) 100%);
+    }
+
+    .hero-body {
+      padding-top: 36px;
+      padding-bottom: 36px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .hero-facts { grid-template-columns: 1fr; gap: 20px; }
+
+    .hero-corner { display: none; }
+
+    .cards { grid-template-columns: 1fr; }
+
+    .grid-6 { grid-template-columns: 1fr; }
+
+    .more-list { grid-template-columns: 1fr; gap: 0; }
+
+    .feature-media { min-height: 380px; }
+
+    .footer-card {
+      padding-top: 40px;
+      padding-bottom: 32px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
   }
 </style>
 </head>
 <body>
 
-<header class="site-header" id="siteHeader">
-  <div class="wrap header-inner">
-    <a href="#hero" class="logo">
-      <img src="assets/logo.png" alt="Stolarija Čeko logo">
-    </a>
-    <nav class="desktop-nav">
-      <a href="#hero">Početna</a>
-      <a href="#usluge">Usluge</a>
-      <a href="#galerija">Galerija</a>
-      <a href="#o-nama">O nama</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-    <div class="header-cta">
-      <a href="#kontakt" class="btn btn-primary">Pošalji upit za nameštaj</a>
+<header class="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a class="brand" href="#pocetna" aria-label="Stolarija Čeko, početak strane">
+        <img src="assets/logo.png" alt="Logo Stolarije Čeko sa motivom testere i drveta">
+      </a>
+
+      <nav class="nav-links" aria-label="Glavna navigacija">
+        <a href="#usluge">Usluge</a>
+        <a href="#vrata">Vrata</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#galerija">Galerija</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <a class="btn nav-cta" href="#kontakt">
+        Pošalji upit
+        <span class="dot" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </span>
+      </a>
+
+      <button class="burger" id="burger" type="button" aria-label="Otvori meni" aria-expanded="false" aria-controls="navPanel">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+      </button>
     </div>
-    <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#hero">Početna</a>
-    <a href="#usluge">Usluge</a>
-    <a href="#galerija">Galerija</a>
-    <a href="#o-nama">O nama</a>
-    <a href="#kontakt">Kontakt</a>
-    <a href="#kontakt" class="btn btn-primary">Pošalji upit za nameštaj</a>
+
+    <div class="nav-panel" id="navPanel">
+      <a href="#usluge">Usluge</a>
+      <a href="#vrata">Vrata</a>
+      <a href="#o-nama">O nama</a>
+      <a href="#galerija">Galerija</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="btn" href="#kontakt">
+        Pošalji upit
+        <span class="dot" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </span>
+      </a>
+    </div>
   </div>
 </header>
 
-<main>
+<main id="pocetna">
 
-  <section class="hero" id="hero">
-    <div class="wrap hero-inner">
-      <span class="hero-eyebrow">Stolarija Čeko - Smederevo</span>
-      <h1>Nameštaj od masivnog drveta, napravljen tačno po tvom prostoru</h1>
-      <p class="lead">Kuhinje, vrata, stepenice, kreveti i ormani koje pravimo ručno, u našoj radionici u Smederevu, po meri koju sami uzmemo kod tebe.</p>
-      <a href="#galerija" class="btn btn-primary">Pogledaj naše radove</a>
-    </div>
-  </section>
-
-  <section class="pain">
-    <div class="wrap reveal">
-      <p>Meriš prostor po treći put i dalje ti ne odgovara nijedna gotova kuhinja iz kataloga. Ormani iz marketa su plićaci, uglovi ostaju neiskorišćeni, a vrata za godinu dana počnu da škripe. Zato ljudi iz Smedereva i okoline dođu kod nas - pravimo tačno po tvom prostoru, od pravog drveta, jednom kako treba.</p>
-    </div>
-  </section>
-
-  <section class="block" id="usluge">
+  <section class="hero">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Šta radimo</span>
-        <h2>Sve što se pravi od drveta, radimo u našoj radionici</h2>
-        <p class="lead">Od kuhinje do poslednje police u ostavi - biraš drvo, dizajn i okove, mi merimo, pravimo i montiramo.</p>
-      </div>
+      <div class="hero-media">
+        <img src="assets/kitchen-55_2500.jpg" alt="Bela kuhinja po meri sa ugaonim rasporedom elemenata i drvenim podom">
+        <div class="hero-shade" aria-hidden="true"></div>
 
-      <div class="services-grid">
+        <div class="hero-body">
+          <h1>Pravo drvo.<br>Prava mera.</h1>
 
-        <div class="service-card reveal">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7"></rect><rect x="3" y="13" width="18" height="7"></rect><line x1="7" y1="16" x2="7" y2="16"></line><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+          <p class="hero-sub">Kuhinje, vrata, stepenice, kreveti i ormani koje pravimo ručno u radionici u Smederevu, po meri koju sami uzmemo kod tebe.</p>
+
+          <div class="hero-facts">
+            <div>
+              <h2>Po meri</h2>
+              <p>Merimo na licu mesta pre nego što počnemo izradu.</p>
+            </div>
+            <div>
+              <h2>Masivno drvo</h2>
+              <p>Radimo sa masivnim drvetom i pravim furnirom.</p>
+            </div>
           </div>
-          <h3>Kuhinje po meri</h3>
-          <p>Raspored elemenata prilagođavamo tačno tvom prostoru, do poslednjeg santimetra, sa drvetom, bojom i okovima po tvom izboru.</p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#kontakt">
+              Pošalji upit za nameštaj
+              <span class="dot" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </span>
+            </a>
+          </div>
         </div>
 
-        <div class="service-card reveal">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="1"></rect><circle cx="15" cy="12" r="0.8" fill="#6b4226" stroke="none"></circle></svg>
-          </div>
-          <h3>Ulazna i sobna vrata</h3>
-          <p>Izrađujemo ulazna i sobna vrata od masivnog drveta, po dimenzijama tvog stana ili kuće, sa izborom šara i završne obrade.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,21 3,17 8,17 8,13 13,13 13,9 18,9 18,5 21,5"></polyline></svg>
-          </div>
-          <h3>Stepenice od masivnog drveta</h3>
-          <p>Pravimo stepenice koje prate tačan nagib i visinu tvog prostora, od tvrdog drveta koje traje decenijama.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5"></path><path d="M2 18h20"></path><path d="M4 11V7a2 2 0 0 1 2-2h3v6"></path></svg>
-          </div>
-          <h3>Kreveti</h3>
-          <p>Izrađujemo krevete sa uzglavljem i ramom po tvojoj željenoj veličini i drvetu, uklopljene u ostatak spavaće sobe.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"></rect><line x1="12" y1="3" x2="12" y2="21"></line><line x1="9" y1="11" x2="9" y2="11"></line><line x1="15" y1="11" x2="15" y2="11"></line></svg>
-          </div>
-          <h3>Ormani, komode i police</h3>
-          <p>Rešavamo garderobere, komode i police tako da iskoriste svaki ugao sobe, čak i one nestandardne kose zidove.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="18"></rect><rect x="10" y="3" width="6" height="18"></rect><rect x="17" y="3" width="4" height="18"></rect></svg>
-          </div>
-          <h3>Dekorativni zidovi</h3>
-          <p>Pravimo drvene paneле i lamele za zidove koje daju toplinu prostoru, prilagođene visini i dužini tvog zida.</p>
-        </div>
-
-        <div class="service-card reveal">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"></path><path d="M3 6h18"></path><path d="M3 18h18"></path></svg>
-          </div>
-          <h3>Uslužno furniranje</h3>
-          <p>Furniramo postojeće ili nove komade nameštaja pravim drvenim furnirom, ako želiš da promeniš izgled bez pravljenja od nule.</p>
-        </div>
-
-        <div class="service-card tool-card reveal">
-          <div class="icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>
-          </div>
-          <h3>Virtuelni alat za dizajn vrata</h3>
-          <p>Zamisli izgled svojih ulaznih ili sobnih vrata pre nego što naručiš - biraš šaru, boju i staklo i vidiš rezultat na ekranu.</p>
-          <a href="#" class="btn btn-light">Otvori alat za dizajn vrata</a>
-        </div>
-
+        <a class="pill hero-corner" href="#galerija">
+          Pogledaj galeriju radova
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="block" id="galerija">
+  <section class="section" id="usluge">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Galerija radova</span>
-        <h2>Pogledaj šta smo do sada napravili</h2>
-        <p class="lead">Deo kuhinja, vrata, kreveta i ormana koje smo isporučili domaćinstvima u Smederevu i okolini.</p>
+      <div class="head-row rv">
+        <div>
+          <p class="eyebrow">Šta radimo</p>
+          <h2 class="h-lg" style="margin-top:16px; max-width:16ch;">Sve što se pravi od drveta, radimo u radionici.</h2>
+          <p class="lede">Biraš drvo, dizajn i okove. Mi merimo, pravimo i montiramo, od kuhinje do poslednje police u ostavi.</p>
+        </div>
+
+        <a class="btn" href="#kontakt">
+          Dogovori meru
+          <span class="dot" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </span>
+        </a>
       </div>
 
-      <div class="gallery-grid">
-        <div class="gallery-item reveal">
-          <img src="assets/kitchen-55_2500.jpg" alt="Bela kuhinja po meri sa tamnim radnim stolom">
-          <div class="gallery-caption">Kuhinja po meri</div>
-        </div>
-        <div class="gallery-item reveal">
-          <img src="assets/kitchen-41_1200.jpg" alt="Moderna kuhinja sa drvenom radnom pločom i crnim ručkama">
-          <div class="gallery-caption">Kuhinja po meri</div>
-        </div>
-        <div class="gallery-item reveal">
-          <img src="assets/doors-04-narrow_2500.jpg" alt="Pet modela unutrašnjih sobnih vrata u različitim bojama">
-          <div class="gallery-caption">Sobna vrata</div>
-        </div>
-        <div class="gallery-item reveal">
-          <img src="assets/doors-02-narrow_2500.jpg" alt="Ulazna i sobna vrata od drveta u različitim izradama">
-          <div class="gallery-caption">Ulazna vrata</div>
-        </div>
-        <div class="gallery-item reveal">
-          <img src="assets/work_bed-05.4_1600.jpg" alt="Bračni krevet od drveta sa noćnim ormarićima">
-          <div class="gallery-caption">Krevet sa noćnim ormarićima</div>
-        </div>
-        <div class="gallery-item reveal">
-          <img src="assets/id-03-example_2000.jpg" alt="Garderober od drveta sa fiokama i policama otvoren u hodniku">
-          <div class="gallery-caption">Garderober po meri</div>
-        </div>
+      <div class="cards">
+        <article class="card rv">
+          <div class="card-media">
+            <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja po meri sa belim elementima, drvenom radnom pločom i visećom rasvetom">
+            <span class="pill">Kuhinje</span>
+          </div>
+          <p class="card-note">Raspored elemenata prilagođavamo tvom prostoru do poslednjeg santimetra, sa drvetom, bojom i okovima po tvom izboru.</p>
+        </article>
+
+        <article class="card rv">
+          <div class="card-media">
+            <img src="assets/doors-04-narrow_2500.jpg" alt="Niz sobnih i ulaznih vrata u različitim bojama i završnim obradama">
+            <span class="pill">Vrata</span>
+          </div>
+          <p class="card-note">Ulazna i sobna vrata od masivnog drveta, po dimenzijama tvog stana ili kuće, sa izborom šara i završne obrade.</p>
+        </article>
+
+        <article class="card rv">
+          <div class="card-media">
+            <img src="assets/id-03-example_2000.jpg" alt="Garderober po meri sa policama i drvenim pregradnim zidom u predsoblju">
+            <span class="pill">Ormani i police</span>
+          </div>
+          <p class="card-note">Garderoberi, komode i police koje iskoriste svaki ugao sobe, uključujući i one sa kosim zidovima.</p>
+        </article>
       </div>
 
-      <div class="gallery-cta reveal">
-        <a href="#" class="btn btn-outline">Pogledaj celu galeriju radova</a>
+      <div class="more-list">
+        <div class="more-item rv">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"></path><path d="M4 20V9l5-4v6l5-4v6l5-4v11"></path></svg>
+          <div>
+            <h3>Stepenice od masivnog drveta</h3>
+            <p>Prate tačan nagib i visinu tvog prostora, od tvrdog drveta koje traje decenijama.</p>
+          </div>
+        </div>
+
+        <div class="more-item rv">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"></path><path d="M3 14h18"></path><path d="M3 18v2"></path><path d="M21 18v2"></path><path d="M7 10V7h10v3"></path></svg>
+          <div>
+            <h3>Kreveti</h3>
+            <p>Uzglavlje i ram u veličini i drvetu koje izabereš, uklopljeni u ostatak spavaće sobe.</p>
+          </div>
+        </div>
+
+        <div class="more-item rv">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v18"></path><path d="M10 3v18"></path><path d="M16 3v18"></path><path d="M20 3v18"></path></svg>
+          <div>
+            <h3>Dekorativni zidovi</h3>
+            <p>Drveni paneli i lamele koji daju toplinu prostoru, prilagođeni visini i dužini tvog zida.</p>
+          </div>
+        </div>
+
+        <div class="more-item rv">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M8 5v14"></path></svg>
+          <div>
+            <h3>Uslužno furniranje</h3>
+            <p>Furniramo postojeće ili nove komade pravim drvenim furnirom, bez pravljenja od nule.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="block about-section" id="o-nama">
-    <div class="wrap about-grid">
-      <div class="about-photo reveal" role="img" aria-label="Fotografija radionice Stolarije Čeko">
-        FOTOGRAFIJA RADIONICE
+  <section class="section feature" id="vrata">
+    <div class="wrap">
+      <p class="eyebrow">Virtuelni alat za vrata</p>
+      <h2 class="h-lg" style="max-width:18ch; margin-left:auto; margin-right:auto;">Vidiš svoja vrata pre nego što ih naručiš</h2>
+      <p class="lede">Biraš šaru, boju i staklo, pa na ekranu vidiš kako to izgleda. Kad se odlučiš, pravimo tačno takva vrata za tvoje otvore.</p>
+
+      <div class="feature-media rv">
+        <img src="assets/doors-02-narrow_2500.jpg" alt="Četiri modela sobnih vrata sa različitim šarama, staklom i bojama drveta">
+        <div class="feature-shade" aria-hidden="true"></div>
+
+        <div class="feature-body">
+          <span class="pill">Kako radi</span>
+          <h3 class="h-md">Izaberi šaru, boju i staklo</h3>
+          <a class="btn btn-ghost" href="#">
+            Otvori alat za dizajn vrata
+            <span class="dot" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </span>
+          </a>
+        </div>
       </div>
-      <div class="about-text reveal">
-        <span class="eyebrow">O nama</span>
-        <h2>Stolarija Čeko iz Smedereva, treća generacija zanata</h2>
-        <p>Radimo sa drvetom svaki dan, ne sklapamo gotove elemente iz kataloga. Svaki komad nameštaja koji izađe iz naše radionice napravljen je za tačno određen prostor i tačno određenog čoveka.</p>
-        <p>Ne obećavamo rokove koje ne možemo da ispunimo i ne prodajemo ono što ne bismo stavili u svoju kuću. To je razlog zbog kog nam se ljudi iz Smedereva i okoline vraćaju kad im treba sledeći komad nameštaja.</p>
-        <div class="about-points">
-          <div class="about-point">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-            <span>Merimo lično, na licu mesta, pre nego što počnemo izradu</span>
-          </div>
-          <div class="about-point">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-            <span>Radimo isključivo sa masivnim drvetom i pravim furnirom</span>
-          </div>
-          <div class="about-point">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
-            <span>Montažu radi ista ekipa koja je nameštaj i napravila</span>
+    </div>
+  </section>
+
+  <section class="section" id="o-nama">
+    <div class="wrap">
+      <div class="rv">
+        <p class="eyebrow">O nama</p>
+        <h2 class="h-lg" style="margin-top:16px; max-width:20ch;">Radimo sa drvetom svaki dan, ne sklapamo gotove elemente.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="placeholder rv">FOTOGRAFIJA RADIONICE U SMEDEREVU</div>
+
+        <div class="rv">
+          <p class="lede">Svaki komad nameštaja koji izađe iz naše radionice napravljen je za tačno određen prostor i tačno određenog čoveka. To je razlog zbog kog nam se ljudi iz Smedereva i okoline vraćaju kad im treba sledeći komad.</p>
+
+          <div class="acc" id="acc">
+            <div class="acc-item open">
+              <button class="acc-head" type="button" aria-expanded="true">
+                Kako radimo
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="bar-v" d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+              </button>
+              <div class="acc-panel">Dođemo kod tebe i uzmemo meru na licu mesta pre nego što počnemo izradu. Tek onda crtamo raspored, biramo drvo i okove i dogovaramo rok.</div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-head" type="button" aria-expanded="false">
+                Materijali
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="bar-v" d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+              </button>
+              <div class="acc-panel">Radimo isključivo sa masivnim drvetom i pravim furnirom. Ne prodajemo ono što ne bismo stavili u svoju kuću.</div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-head" type="button" aria-expanded="false">
+                Montaža i rokovi
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="bar-v" d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+              </button>
+              <div class="acc-panel">Montažu radi ista ekipa koja je nameštaj i napravila. Ne obećavamo rokove koje ne možemo da ispunimo.</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="block contact-section" id="kontakt">
-    <div class="wrap contact-grid">
-      <div class="contact-info reveal">
-        <span class="eyebrow">Kontakt</span>
-        <h2>Javi nam se, pa dogovaramo meru</h2>
-        <p class="lead">Pošalji upit sa opisom onoga što ti treba - kuhinja, vrata, krevet ili nešto peto. Javljamo se da dogovorimo izlazak na teren i uzimanje mere.</p>
-        <div class="info-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-          <span>Smederevo i okolina</span>
-        </div>
-        <div class="info-row">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#6b4226" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 6-10 7L2 6"></path></svg>
-          <span>Odgovaramo na svaki upit poslat kroz formu</span>
-        </div>
+  <section class="section" id="galerija">
+    <div class="wrap">
+      <div class="gallery-head rv">
+        <p class="eyebrow">Galerija radova</p>
+        <h2 class="h-lg" style="max-width:18ch; margin-left:auto; margin-right:auto;">Deo onoga što smo do sada napravili</h2>
+        <p class="lede">Kuhinje, vrata, kreveti i ormani isporučeni domaćinstvima u Smederevu i okolini.</p>
       </div>
 
-      <form class="contact-form reveal" action="#" method="post">
-        <div class="form-row">
-          <div>
-            <label for="ime">Ime i prezime</label>
-            <input type="text" id="ime" name="ime" placeholder="Tvoje ime">
-          </div>
-          <div>
-            <label for="telefon">Telefon ili email</label>
-            <input type="text" id="telefon" name="telefon" placeholder="Kako da te kontaktiramo">
-          </div>
+      <div class="grid-6">
+        <div class="shot rv">
+          <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja sa belim frontovima i drvenom radnom pločom">
+          <span>Kuhinja po meri</span>
         </div>
-        <div class="field-group">
+        <div class="shot rv">
+          <img src="assets/kitchen-55_2500.jpg" alt="Ugaona bela kuhinja sa ugradnom rernom i staklenom zaštitom">
+          <span>Ugaona kuhinja</span>
+        </div>
+        <div class="shot rv">
+          <img src="assets/doors-04-narrow_2500.jpg" alt="Sobna vrata u beloj i drvenoj završnoj obradi">
+          <span>Sobna vrata</span>
+        </div>
+        <div class="shot rv">
+          <img src="assets/doors-02-narrow_2500.jpg" alt="Ulazna vrata od punog drveta sa staklenim poljima">
+          <span>Ulazna vrata</span>
+        </div>
+        <div class="shot rv">
+          <img src="assets/work_bed-05.4_1600.jpg" alt="Bračni krevet od masivnog drveta sa uzglavljem i noćnim ormarićima">
+          <span>Krevet sa uzglavljem</span>
+        </div>
+        <div class="shot rv">
+          <img src="assets/id-03-example_2000.jpg" alt="Garderober po meri sa policama i drvenim pregradnim zidom">
+          <span>Garderober po meri</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="kontakt">
+    <div class="wrap">
+      <div class="contact-head rv">
+        <p class="eyebrow">Kontakt</p>
+        <h2 class="h-lg" style="max-width:16ch; margin-left:auto; margin-right:auto;">Javi nam se i dogovaramo meru</h2>
+        <p class="lede">Opiši šta ti treba - kuhinja, vrata, krevet ili nešto peto. Javljamo se da dogovorimo izlazak na teren i uzimanje mere.</p>
+      </div>
+
+      <form class="form rv" action="#" method="post">
+        <div class="field">
+          <label for="ime">Ime i prezime</label>
+          <input id="ime" name="ime" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="kontakt-podatak">Telefon ili email</label>
+          <input id="kontakt-podatak" name="kontakt" type="text" autocomplete="tel" required>
+        </div>
+
+        <div class="field">
           <label for="poruka">Opiši šta ti treba</label>
-          <textarea id="poruka" name="poruka" placeholder="Npr. kuhinja za stan od 62m2, potreban predlog rasporeda i cena"></textarea>
+          <textarea id="poruka" name="poruka" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Pošalji upit za izradu nameštaja</button>
+
+        <button class="btn" type="submit">
+          Pošalji upit za izradu nameštaja
+          <span class="dot" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </span>
+        </button>
       </form>
     </div>
   </section>
 
 </main>
 
-<footer>
+<footer class="footer">
   <div class="wrap">
-    <div class="footer-top">
-      <a href="#hero" class="footer-logo">
-        <img src="assets/logo.png" alt="Stolarija Čeko logo">
-        Stolarija Čeko
-      </a>
-      <nav class="footer-nav">
-        <a href="#usluge">Usluge</a>
-        <a href="#galerija">Galerija</a>
-        <a href="#o-nama">O nama</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <span>Stolarija Čeko - nameštaj od drveta po meri, Smederevo</span>
-      <span>Sva prava zadržana</span>
+    <div class="footer-card">
+      <p class="mark">Stolarija Čeko</p>
+      <p class="sub">Nameštaj od masivnog drveta po meri. Radionica u Smederevu, izlazak na teren u Smederevu i okolini.</p>
+
+      <div class="footer-row">
+        <nav class="footer-nav" aria-label="Navigacija u podnožju">
+          <a href="#usluge">Usluge</a>
+          <a href="#vrata">Vrata</a>
+          <a href="#o-nama">O nama</a>
+          <a href="#galerija">Galerija</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+        <p>Stolarija Čeko, Smederevo. Sva prava zadržana.</p>
+      </div>
     </div>
   </div>
 </footer>
 
 <script>
-  // Header scrolled state
-  const header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+  (function () {
+    var burger = document.getElementById('burger');
+    var panel = document.getElementById('navPanel');
 
-  // Mobile menu toggle
-  const hamburgerBtn = document.getElementById('hamburgerBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  hamburgerBtn.addEventListener('click', () => {
-    hamburgerBtn.classList.toggle('open');
-    mobileMenu.classList.toggle('active');
-  });
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburgerBtn.classList.remove('open');
-      mobileMenu.classList.remove('active');
+    burger.addEventListener('click', function () {
+      var open = panel.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Zatvori meni' : 'Otvori meni');
     });
-  });
 
-  // Scroll reveal
-  if ('IntersectionObserver' in window) {
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+    panel.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        panel.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Otvori meni');
+      }
+    });
+
+    var acc = document.getElementById('acc');
+    acc.addEventListener('click', function (e) {
+      var head = e.target.closest('.acc-head');
+      if (!head) return;
+      var item = head.parentElement;
+      var open = item.classList.toggle('open');
+      head.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    if (!('IntersectionObserver' in window)) return;
+
+    var items = document.querySelectorAll('.rv');
+    items.forEach(function (el) { el.classList.add('pending'); });
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
+          entry.target.classList.remove('pending');
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => observer.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
-  }
+    }, { rootMargin: '0px 0px -8% 0px' });
+
+    items.forEach(function (el) { io.observe(el); });
+  })();
 </script>
 
 </body>
