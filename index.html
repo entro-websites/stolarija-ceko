@@ -13,6 +13,7 @@
     --accent: #6b4226;
     --accent-dark: #4a2c18;
     --accent-soft: #ede4dc;
+    --ink: #16120f;
     --accent-line: rgba(107, 66, 38, 0.14);
     --accent-glow: rgba(107, 66, 38, 0.09);
 
@@ -96,6 +97,15 @@
   .h-md { font-size: clamp(26px, 3vw, 42px); }
 
   .center { text-align: center; }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
 
   .center .lede,
   .center .eyebrow { margin-left: auto; margin-right: auto; }
@@ -569,100 +579,152 @@
 
   /* ---------- footer ---------- */
 
-  .footer { padding-bottom: 0; }
-
-  .footer-card {
-    position: relative;
-    border-radius: 0;
-    overflow: hidden;
-    min-height: 340px;
-    display: flex;
-    align-items: stretch;
-    padding-top: 28px;
-    padding-bottom: 26px;
-    padding-left: 0;
-    padding-right: 0;
+  .footer {
+    padding-bottom: 0;
+    background: var(--ink);
     color: #fff;
   }
 
   .footer-inner {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 32px;
+    padding-top: 76px;
+    padding-bottom: 64px;
   }
 
-  .footer-card > img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-
-  .footer-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(30, 21, 14, 0.62) 0%, rgba(30, 21, 14, 0.74) 100%);
-    z-index: 1;
-  }
-
-  .footer-top,
-  .footer-bottom {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .footer-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 14px;
-    padding-right: 16px;
-    border-radius: var(--r-pill);
-    background: rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    font-size: 13px;
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr 0.85fr 1fr;
+    gap: 132px 40px;
+    align-items: start;
   }
 
   .footer-mark {
     font-family: var(--font-display);
-    font-size: 22px;
+    font-size: 40px;
     font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-align: right;
-    line-height: 1.15;
+    line-height: 1;
+    letter-spacing: -0.01em;
   }
 
-  .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; font-size: 14px; }
+  .footer-tag {
+    margin-top: 12px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+  }
 
-  .footer-tag { font-size: 13px; opacity: 0.85; }
+  .footer-col {
+    display: grid;
+    gap: 14px;
+    align-content: start;
+    font-size: 15px;
+  }
 
-  .footer-nav a { text-decoration: none; opacity: 0.85; transition: opacity 0.2s ease; }
+  .footer-col a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.2s ease;
+    justify-self: start;
+  }
 
-  .footer-nav a:hover { opacity: 1; }
+  .footer-col a:hover { color: rgba(255, 255, 255, 0.62); }
+
+  .footer-col.muted { color: rgba(255, 255, 255, 0.5); }
+
+  .footer-top-link { align-self: end; justify-self: start; }
+
+  .btn-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 24px;
+    padding-right: 7px;
+    border: 0;
+    border-radius: var(--r-pill);
+    background: rgba(255, 255, 255, 0.09);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.25s ease;
+  }
+
+  .btn-dark:hover { background: rgba(255, 255, 255, 0.16); }
+
+  .btn-dark .dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: var(--r-pill);
+    background: #fff;
+    color: var(--ink);
+    flex: none;
+  }
+
+  .footer-call { grid-column: span 2; align-self: end; }
+
+  .footer-call h2 {
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  .footer-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    max-width: 420px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 22px;
+    padding-right: 6px;
+    border-radius: var(--r-pill);
+    background: #fff;
+  }
+
+  .footer-field input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 14.5px;
+  }
+
+  .footer-field input:focus { outline: none; }
+
+  .footer-field input::placeholder { color: var(--text-faint); }
+
+  .footer-field button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: var(--r-pill);
+    background: var(--ink);
+    color: #fff;
+    cursor: pointer;
+    flex: none;
+    transition: background 0.25s ease;
+  }
+
+  .footer-field button:hover { background: var(--accent); }
+
+  .footer-contact { align-self: end; font-size: 15px; }
 
   .footer-note {
-    position: relative;
-    z-index: 2;
-    margin-top: 20px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 12.5px;
-    color: rgba(255, 255, 255, 0.72);
+    margin-top: 18px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.5);
   }
 
   /* ---------- nav ---------- */
@@ -707,6 +769,7 @@
     .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .about-grid { grid-template-columns: 1fr; gap: 32px; }
     .pin-track { height: 200vh; }
+    .footer-grid { gap: 72px 32px; }
   }
 
   @media (max-width: 991px) {
@@ -776,11 +839,24 @@
 
     .mq-track img { height: 130px; }
 
-    .footer-card { min-height: 280px; }
+    .footer-inner { padding-top: 52px; padding-bottom: 44px; }
 
-    .footer-note { margin-top: 16px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
 
-    .footer-mark { text-align: left; }
+    .footer-brand { grid-column: span 2; }
+
+    .footer-col.muted { grid-column: span 2; }
+
+    .footer-top-link {
+      grid-column: span 2;
+      align-self: start;
+    }
+
+    .footer-call { grid-column: span 2; }
+
+    .footer-contact { grid-column: span 2; }
+
+    .footer-mark { font-size: 32px; }
   }
 </style>
 </head>
@@ -1108,30 +1184,60 @@
 </main>
 
 <footer class="footer">
-  <div class="footer-card">
-    <img src="assets/doors-04-narrow_2500.jpg" alt="">
+  <div class="wrap footer-inner">
+    <div class="footer-grid">
 
-    <div class="wrap footer-inner">
-      <div class="footer-top">
-        <span class="footer-chip">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
-          Radionica u Smederevu
-        </span>
-        <p class="footer-mark">Stolarija<br>Čeko</p>
-      </div>
-
-      <div class="footer-bottom">
-        <nav class="footer-nav" aria-label="Navigacija u podnožju">
-          <a href="#usluge">Usluge</a>
-          <a href="#vrata">Vrata</a>
-          <a href="#o-nama">O nama</a>
-          <a href="#galerija">Galerija</a>
-          <a href="#kontakt">Kontakt</a>
-        </nav>
+      <div class="footer-brand">
+        <p class="footer-mark">Stolarija Čeko</p>
         <p class="footer-tag">Nameštaj od masivnog drveta po meri</p>
       </div>
 
-      <p class="footer-note">Stolarija Čeko, Smederevo. Sva prava zadržana.</p>
+      <nav class="footer-col" aria-label="Navigacija u podnožju">
+        <a href="#usluge">Usluge</a>
+        <a href="#vrata">Vrata</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#galerija">Galerija</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="Šta radimo">
+        <a href="#usluge">Kuhinje</a>
+        <a href="#usluge">Stepenice</a>
+        <a href="#usluge">Kreveti</a>
+        <a href="#usluge">Ormani i police</a>
+        <a href="#usluge">Uslužno furniranje</a>
+      </nav>
+
+      <div class="footer-col muted">
+        <span>Merimo na licu mesta</span>
+        <span>Masivno drvo i pravi furnir</span>
+        <span>Montira ista ekipa koja i pravi</span>
+      </div>
+
+      <a class="btn-dark footer-top-link" href="#pocetna">
+        Nazad na vrh
+        <span class="dot" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg>
+        </span>
+      </a>
+
+      <div class="footer-call">
+        <h2>Ostavi broj<br>pa te zovemo</h2>
+
+        <form class="footer-field" action="#" method="post">
+          <label class="sr-only" for="footer-telefon">Broj telefona</label>
+          <input id="footer-telefon" name="telefon" type="tel" placeholder="060 000 0000" autocomplete="tel" required>
+          <button type="submit" aria-label="Pošalji broj telefona">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </button>
+        </form>
+      </div>
+
+      <div class="footer-contact">
+        <p>Smederevo i okolina</p>
+        <p class="footer-note">Stolarija Čeko<br>2026 &copy; Sva prava zadržana</p>
+      </div>
+
     </div>
   </div>
 </footer>
