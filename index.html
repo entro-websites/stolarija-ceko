@@ -7,23 +7,24 @@
 <meta name="description" content="Kuhinje, vrata, stepenice, kreveti i ormani od masivnog drveta. Merimo kod tebe, pravimo u radionici u Smederevu i montiramo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --accent: #6b4226;
     --accent-dark: #4a2c18;
-    --accent-soft: #ece3da;
-    --accent-line: rgba(107, 66, 38, 0.16);
-    --accent-glow: rgba(107, 66, 38, 0.10);
+    --accent-soft: #ede4dc;
+    --accent-line: rgba(107, 66, 38, 0.14);
+    --accent-glow: rgba(107, 66, 38, 0.09);
 
-    --bg: #f5f2ee;
+    --bg: #f5f3f1;
     --surface: #ffffff;
-    --text: #1c1815;
-    --text-muted: #5c5450;
-    --text-faint: #8d8580;
+    --text: #1f1c1a;
+    --text-muted: #5f5854;
+    --text-faint: #8e8782;
 
-    --r-card: 24px;
-    --r-media: 20px;
+    --r-media: 16px;
+    --r-card: 12px;
+    --r-box: 10px;
     --r-pill: 999px;
 
     --font-display: "Outfit", "Trebuchet MS", sans-serif;
@@ -34,7 +35,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 104px;
+    scroll-padding-top: 32px;
   }
 
   body {
@@ -42,18 +43,19 @@
     background: var(--bg);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.65;
+    font-size: 15px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
   }
 
   img { display: block; max-width: 100%; }
 
-  h1, h2, h3 {
+  h1, h2, h3, .title {
     font-family: var(--font-display);
-    font-weight: 300;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.015em;
     margin: 0;
   }
 
@@ -65,366 +67,359 @@
 
   .wrap {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .section {
-    padding-top: 120px;
-    padding-bottom: 120px;
-  }
-
-  .lede {
-    max-width: 65ch;
-    color: var(--text-muted);
-    font-size: 17px;
+    padding-top: 112px;
+    padding-bottom: 112px;
   }
 
   .eyebrow {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
+    font-size: 14px;
+    color: var(--text-muted);
     margin: 0;
   }
 
-  .h-xl { font-size: clamp(40px, 6.4vw, 76px); }
-  .h-lg { font-size: clamp(32px, 4.4vw, 52px); }
-  .h-md { font-size: clamp(24px, 2.8vw, 34px); }
+  .lede {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    max-width: 65ch;
+  }
+
+  .h-xl { font-size: clamp(40px, 5.2vw, 62px); }
+  .h-lg { font-size: clamp(28px, 2.9vw, 42px); }
+  .h-md { font-size: clamp(26px, 3vw, 42px); }
+
+  .center { text-align: center; }
+
+  .center .lede,
+  .center .eyebrow { margin-left: auto; margin-right: auto; }
 
   /* ---------- buttons ---------- */
 
   .btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 24px;
-    padding-right: 10px;
+    gap: 14px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 22px;
+    padding-right: 7px;
     border: 1px solid var(--accent);
     border-radius: var(--r-pill);
     background: var(--accent);
     color: #fff;
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
-    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    transition: background 0.25s ease, border-color 0.25s ease;
   }
 
-  .btn:hover {
-    background: var(--accent-dark);
-    border-color: var(--accent-dark);
-    transform: translateY(-1px);
-  }
+  .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
 
   .btn .dot {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: var(--r-pill);
     background: #fff;
     color: var(--accent);
     flex: none;
+    transition: transform 0.3s ease;
   }
 
-  .btn-ghost {
+  .btn:hover .dot { transform: translateX(2px); }
+
+  .btn-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 22px;
+    padding-right: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--r-pill);
     background: transparent;
-    border-color: rgba(255, 255, 255, 0.55);
     color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background 0.25s ease, border-color 0.25s ease;
   }
 
-  .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: #fff;
-  }
+  .btn-line:hover { background: rgba(255, 255, 255, 0.14); border-color: #fff; }
 
-  .btn-ghost .dot {
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.55);
-    color: #fff;
-  }
+  /* corner tab: sits flush in a corner of a rounded image */
 
-  .pill {
+  .tab {
+    position: absolute;
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 14px;
-    padding-right: 14px;
-    border-radius: var(--r-pill);
-    background: rgba(255, 255, 255, 0.92);
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background: var(--surface);
     color: var(--text);
     font-size: 13px;
     font-weight: 500;
     text-decoration: none;
+    z-index: 3;
   }
 
-  /* ---------- nav ---------- */
-
-  .nav {
-    position: fixed;
-    top: 16px;
-    left: 0;
-    right: 0;
-    z-index: 50;
-  }
-
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: var(--r-pill);
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 10px 40px rgba(28, 24, 21, 0.10);
-  }
-
-  .brand { display: flex; align-items: center; }
-  .brand img { height: 36px; width: auto; }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-  }
-
-  .nav-links a {
-    font-size: 15px;
-    text-decoration: none;
-    color: var(--text);
-    transition: color 0.2s ease;
-  }
-
-  .nav-links a:hover { color: var(--accent); }
-
-  .nav-cta { display: inline-flex; }
-
-  .burger {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border: 0;
-    border-radius: var(--r-pill);
-    background: transparent;
-    color: var(--text);
-    cursor: pointer;
-  }
-
-  .nav-panel { display: none; }
+  .tab-tl { top: 0; left: 0; border-radius: var(--r-card) 0 var(--r-card) 0; }
+  .tab-br { right: 0; bottom: 0; border-radius: var(--r-card) 0 var(--r-card) 0; }
 
   /* ---------- hero ---------- */
 
-  .hero {
-    padding-top: 84px;
-    padding-bottom: 0;
-  }
+  .hero { padding-top: 20px; }
+
+  .hero-shell { position: relative; }
 
   .hero-media {
     position: relative;
-    border-radius: var(--r-card);
+    border-radius: var(--r-media);
     overflow: hidden;
-    min-height: 660px;
+    min-height: 820px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
   }
 
-  .hero-media > img {
+  .slide {
     position: absolute;
     inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.9s ease;
+  }
+
+  .slide.on { opacity: 1; visibility: visible; }
+
+  .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .hero-shade {
+  .slide::after {
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(100deg, rgba(20, 15, 11, 0.82) 0%, rgba(20, 15, 11, 0.55) 38%, rgba(20, 15, 11, 0.08) 72%);
+    background: linear-gradient(96deg, rgba(20, 15, 11, 0.80) 0%, rgba(20, 15, 11, 0.52) 40%, rgba(20, 15, 11, 0.06) 76%);
   }
 
-  .hero-body {
+  .hero-copy {
     position: relative;
     z-index: 2;
     width: 100%;
-    padding-top: 56px;
-    padding-bottom: 56px;
-    padding-left: 48px;
-    padding-right: 48px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 64px;
+    padding-right: 64px;
     color: #fff;
   }
 
-  .hero-body h1 {
-    font-size: clamp(44px, 6.6vw, 80px);
-    max-width: 12ch;
+  .title-stack {
+    display: grid;
+    min-height: 2.2em;
   }
 
-  .hero-sub {
-    margin-top: 20px;
-    max-width: 46ch;
-    color: rgba(255, 255, 255, 0.86);
-    font-size: 17px;
+  .title-stack > * {
+    grid-area: 1 / 1;
+    font-size: clamp(44px, 4.9vw, 68px);
+    color: #fff;
+    max-width: 13ch;
+    opacity: 0;
+    transition: opacity 0.9s ease;
   }
+
+  .title-stack > .on { opacity: 1; }
 
   .hero-facts {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 220px));
-    gap: 32px;
+    grid-template-columns: repeat(2, minmax(0, 250px));
+    gap: 26px;
     margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.35);
   }
 
+  .hero-facts > div { padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.45); }
+
   .hero-facts h2 {
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 21px;
+    font-weight: 500;
     color: #fff;
   }
 
   .hero-facts p {
-    margin-top: 8px;
-    font-size: 14px;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.78);
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.8);
   }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 16px;
-    margin-top: 36px;
-  }
+  .hero-copy .btn { margin-top: 36px; }
 
-  .hero-corner {
+  .arrow {
     position: absolute;
-    right: 24px;
-    bottom: 24px;
-    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.25s ease;
   }
 
-  /* ---------- services ---------- */
+  .arrow:hover { background: rgba(255, 255, 255, 0.3); }
+
+  .arrow-prev { left: 12px; }
+  .arrow-next { right: 12px; }
+
+  .dots {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    z-index: 4;
+    display: flex;
+    gap: 6px;
+  }
+
+  .dots button {
+    width: 8px;
+    height: 8px;
+    border: 0;
+    border-radius: var(--r-pill);
+    background: rgba(255, 255, 255, 0.45);
+    cursor: pointer;
+    transition: width 0.3s ease, background 0.3s ease;
+  }
+
+  .dots button.on { width: 22px; background: #fff; }
+
+  /* ---------- section head ---------- */
 
   .head-row {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 32px;
+    gap: 40px;
     flex-wrap: wrap;
   }
 
-  .head-row .lede { margin-top: 16px; }
+  .head-row .lede { margin-top: 12px; }
+
+  /* ---------- product cards ---------- */
 
   .cards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
-    margin-top: 56px;
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
+    margin-top: 40px;
   }
 
   .card-media {
     position: relative;
-    border-radius: var(--r-media);
+    border-radius: var(--r-card);
     overflow: hidden;
-    aspect-ratio: 5 / 4;
+    aspect-ratio: 4 / 5;
   }
 
   .card-media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.7s ease;
   }
 
-  .card:hover .card-media img { transform: scale(1.03); }
-
-  .card-media .pill {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-  }
+  .card:hover .card-media img { transform: scale(1.04); }
 
   .card-note {
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--accent-line);
+    margin-top: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 1px solid var(--accent-line);
+    border-radius: var(--r-box);
+    background: var(--surface);
     color: var(--text-muted);
-    font-size: 15px;
+    font-size: 13.5px;
+    line-height: 1.5;
   }
 
   .more-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0 48px;
-    margin-top: 64px;
+    margin-top: 56px;
   }
 
   .more-item {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    gap: 14px;
+    padding-top: 18px;
+    padding-bottom: 18px;
     border-top: 1px solid var(--accent-line);
   }
 
-  .more-item svg { flex: none; margin-top: 4px; color: var(--accent); }
+  .more-item svg { flex: none; margin-top: 3px; color: var(--accent); }
 
-  .more-item h3 { font-size: 20px; font-weight: 400; }
+  .more-item h3 { font-size: 19px; }
 
-  .more-item p {
-    margin-top: 4px;
-    color: var(--text-muted);
-    font-size: 15px;
+  .more-item p { margin-top: 3px; color: var(--text-muted); font-size: 13.5px; line-height: 1.5; }
+
+  /* ---------- scroll-expand feature ---------- */
+
+  #vrata { padding-bottom: 0; }
+
+  .pin-track { position: relative; height: 230vh; }
+
+  .pin-stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
   }
 
-  /* ---------- feature ---------- */
+  .pin-stage .wrap { width: 100%; }
 
-  .feature { text-align: center; }
-
-  .feature .h-lg { margin-top: 16px; }
-
-  .feature .lede {
-    margin-top: 20px;
+  .expand {
+    --p: 1;
+    position: relative;
+    width: calc(71% + 29% * var(--p));
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .feature-media {
-    position: relative;
-    margin-top: 48px;
-    border-radius: var(--r-card);
+    height: calc(74vh + 12vh * var(--p));
+    min-height: 420px;
+    border-radius: calc(150px - 134px * var(--p));
     overflow: hidden;
-    min-height: 460px;
     display: flex;
     align-items: center;
     justify-content: center;
+    will-change: width, border-radius;
   }
 
-  .feature-media > img {
+  .expand img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -432,35 +427,52 @@
     object-fit: cover;
   }
 
-  .feature-shade {
+  .expand::after {
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(20, 15, 11, 0.28) 0%, rgba(20, 15, 11, 0.68) 100%);
+    background: linear-gradient(180deg, rgba(20, 15, 11, 0.34) 0%, rgba(20, 15, 11, 0.62) 100%);
   }
 
-  .feature-body {
+  .expand-body {
     position: relative;
     z-index: 2;
-    padding-top: 48px;
-    padding-bottom: 48px;
+    text-align: center;
+    color: #fff;
     padding-left: 24px;
     padding-right: 24px;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 14px;
+    padding-right: 16px;
+    border-radius: var(--r-pill);
+    background: rgba(20, 15, 11, 0.82);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .expand-body .title {
+    margin-top: 16px;
+    font-size: clamp(28px, 3.4vw, 46px);
     color: #fff;
   }
 
-  .feature-body .pill { background: rgba(28, 24, 21, 0.78); color: #fff; }
-
-  .feature-body h3 { margin-top: 20px; color: #fff; }
-
-  .feature-body .btn { margin-top: 28px; }
+  .expand-body .btn-line { margin-top: 22px; }
 
   /* ---------- about ---------- */
 
   .about-grid {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: 48px;
-    margin-top: 56px;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 56px;
+    margin-top: 40px;
     align-items: start;
   }
 
@@ -468,18 +480,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 11;
     border-radius: var(--r-media);
-    background: #ddd8d2;
+    background: #ddd7d1;
     color: #6f6862;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     text-align: center;
   }
 
-  .acc { margin-top: 32px; }
+  .acc { margin-top: 24px; }
 
   .acc-item { border-top: 1px solid var(--accent-line); }
 
@@ -491,384 +503,457 @@
     justify-content: space-between;
     gap: 16px;
     width: 100%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 18px;
+    padding-bottom: 18px;
     padding-left: 0;
     padding-right: 0;
     border: 0;
     background: transparent;
     color: var(--text);
     font-family: var(--font-display);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     text-align: left;
     cursor: pointer;
   }
 
-  .acc-head svg { flex: none; color: var(--accent); }
+  .acc-head svg { flex: none; color: var(--text); }
 
   .acc-head svg .bar-v { transition: opacity 0.25s ease; }
 
   .acc-item.open .acc-head svg .bar-v { opacity: 0; }
 
-  .acc-panel {
-    display: none;
-    padding-bottom: 24px;
-    color: var(--text-muted);
-    font-size: 15px;
-    max-width: 65ch;
-  }
+  .acc-panel { display: none; padding-bottom: 18px; }
 
   .acc-item.open .acc-panel { display: block; }
 
-  /* ---------- gallery ---------- */
-
-  .gallery-head { text-align: center; }
-
-  .gallery-head .h-lg { margin-top: 16px; }
-
-  .gallery-head .lede {
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .grid-6 {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-    margin-top: 56px;
-  }
-
-  .shot {
-    position: relative;
-    border-radius: var(--r-media);
-    overflow: hidden;
-    aspect-ratio: 4 / 3;
-    box-shadow: 0 2px 20px rgba(28, 24, 21, 0.06);
-    transition: box-shadow 0.35s ease, transform 0.35s ease;
-  }
-
-  .shot:hover {
-    box-shadow: 0 18px 48px rgba(28, 24, 21, 0.14);
-    transform: translateY(-3px);
-  }
-
-  .shot img { width: 100%; height: 100%; object-fit: cover; }
-
-  .shot span {
-    position: absolute;
-    left: 12px;
-    bottom: 12px;
-    border-radius: var(--r-pill);
-    background: rgba(255, 255, 255, 0.92);
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 12px;
-    padding-right: 12px;
-    font-size: 12px;
-    font-weight: 500;
-  }
-
-  /* ---------- contact ---------- */
-
-  .contact {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .contact::before {
-    content: "";
-    position: absolute;
-    top: -20%;
-    left: 50%;
-    width: 900px;
-    height: 900px;
-    transform: translateX(-50%);
-    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(107, 66, 38, 0) 65%);
-    pointer-events: none;
-  }
-
-  .contact .wrap { position: relative; z-index: 1; }
-
-  .contact-head { text-align: center; }
-
-  .contact-head .h-lg { margin-top: 16px; }
-
-  .contact-head .lede {
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .form {
-    max-width: 640px;
-    margin-top: 48px;
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    gap: 16px;
-  }
-
-  .field { display: grid; gap: 8px; }
-
-  .field label {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-muted);
-  }
-
-  .field input,
-  .field textarea {
-    width: 100%;
+  .acc-panel div {
     padding-top: 14px;
     padding-bottom: 14px;
     padding-left: 16px;
     padding-right: 16px;
     border: 1px solid var(--accent-line);
-    border-radius: 12px;
+    border-radius: var(--r-box);
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  /* ---------- marquee gallery ---------- */
+
+  .mq-wrap { margin-top: 44px; display: grid; gap: 14px; }
+
+  .mq { overflow: hidden; }
+
+  .mq-track {
+    display: flex;
+    gap: 14px;
+    width: max-content;
+    animation: mq-move 70s linear infinite;
+  }
+
+  .mq-2 .mq-track { animation-duration: 88s; animation-direction: reverse; }
+  .mq-3 .mq-track { animation-duration: 78s; }
+
+  .mq-track img {
+    height: 190px;
+    width: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  @keyframes mq-move {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 7px)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mq-track { animation: none; }
+  }
+
+  /* ---------- contact ---------- */
+
+  .contact { position: relative; overflow: hidden; }
+
+  .contact::before {
+    content: "";
+    position: absolute;
+    top: -180px;
+    left: 50%;
+    width: 880px;
+    height: 880px;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(107, 66, 38, 0) 66%);
+    pointer-events: none;
+  }
+
+  .contact .wrap { position: relative; z-index: 1; }
+
+  .form {
+    max-width: 620px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .field { display: grid; gap: 7px; }
+
+  .field label { font-size: 12.5px; font-weight: 500; color: var(--text-muted); }
+
+  .field input,
+  .field textarea {
+    width: 100%;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border: 1px solid rgba(107, 66, 38, 0.22);
+    border-radius: var(--r-box);
     background: var(--surface);
     color: var(--text);
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 14.5px;
   }
 
-  .field textarea { min-height: 132px; resize: vertical; }
+  .field textarea { min-height: 128px; resize: vertical; }
 
   .field input:focus,
-  .field textarea:focus {
-    outline: none;
-    border-color: var(--accent);
-  }
+  .field textarea:focus { outline: none; border-color: var(--accent); }
 
-  .form .btn { justify-self: start; margin-top: 8px; }
+  .form .btn { justify-self: center; margin-top: 6px; }
 
   /* ---------- footer ---------- */
 
-  .footer { padding-bottom: 32px; }
+  .footer { padding-bottom: 24px; }
 
   .footer-card {
-    border-radius: var(--r-card);
-    background: var(--accent-dark);
-    color: rgba(255, 255, 255, 0.82);
-    padding-top: 56px;
-    padding-bottom: 40px;
-    padding-left: 48px;
-    padding-right: 48px;
-  }
-
-  .footer-card .mark {
-    font-family: var(--font-display);
-    font-size: clamp(28px, 4vw, 44px);
-    font-weight: 300;
-    letter-spacing: 0.02em;
+    position: relative;
+    border-radius: var(--r-media);
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    padding-left: 32px;
+    padding-right: 32px;
     color: #fff;
   }
 
-  .footer-card .sub {
-    margin-top: 12px;
-    max-width: 46ch;
-    font-size: 15px;
+  .footer-card > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
   }
 
-  .footer-row {
+  .footer-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(30, 21, 14, 0.62) 0%, rgba(30, 21, 14, 0.74) 100%);
+    z-index: 1;
+  }
+
+  .footer-top,
+  .footer-bottom {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 20px;
     flex-wrap: wrap;
-    margin-top: 48px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
-    font-size: 14px;
   }
 
-  .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    padding-right: 16px;
+    border-radius: var(--r-pill);
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-size: 13px;
+  }
 
-  .footer-nav a { text-decoration: none; }
+  .footer-mark {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.15;
+  }
 
-  .footer-nav a:hover { color: #fff; }
+  .footer-nav { display: flex; gap: 24px; flex-wrap: wrap; font-size: 14px; }
+
+  .footer-nav a { text-decoration: none; opacity: 0.85; transition: opacity 0.2s ease; }
+
+  .footer-nav a:hover { opacity: 1; }
+
+  .footer-note {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--text-faint);
+  }
+
+  /* ---------- nav ---------- */
+
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 28px;
+    background: var(--surface);
+    border-radius: var(--r-media) 0 22px 0;
+  }
+
+  .navbar img { height: 34px; width: auto; }
+
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+
+  .nav-links a {
+    font-size: 14.5px;
+    text-decoration: none;
+    color: var(--text);
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: var(--r-pill);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .nav-panel { display: none; }
 
   /* ---------- reveal ---------- */
 
-  .rv { transition: transform 0.6s ease; }
-
-  .rv.in { transform: translateY(0); }
+  .rv { transition: transform 0.7s ease, opacity 0.7s ease; }
 
   @media (prefers-reduced-motion: no-preference) {
-    .rv.pending { transform: translateY(12px); }
+    .rv.pending { transform: translateY(14px); opacity: 0.001; }
   }
 
   /* ---------- responsive ---------- */
 
   @media (max-width: 1100px) {
     .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-6 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .about-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-media { min-height: 700px; }
+    .pin-track { height: 200vh; }
   }
 
   @media (max-width: 991px) {
-    .nav-links,
-    .nav-cta { display: none; }
+    .navbar {
+      left: 0;
+      right: 0;
+      justify-content: space-between;
+      gap: 16px;
+      padding-right: 12px;
+      border-radius: var(--r-media) var(--r-media) 22px 22px;
+    }
+
+    .nav-links { display: none; }
 
     .burger { display: inline-flex; }
 
     .nav-panel {
       display: none;
-      margin-top: 12px;
-      padding-top: 16px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 11;
+      margin-top: 8px;
+      padding-top: 12px;
       padding-bottom: 16px;
       padding-left: 20px;
       padding-right: 20px;
-      border-radius: var(--r-card);
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 16px 48px rgba(28, 24, 21, 0.14);
+      border-radius: var(--r-media);
+      background: var(--surface);
+      box-shadow: 0 16px 44px rgba(31, 28, 26, 0.16);
     }
 
     .nav-panel.open { display: block; }
 
     .nav-panel a {
       display: block;
-      padding-top: 12px;
-      padding-bottom: 12px;
-      font-size: 17px;
+      padding-top: 11px;
+      padding-bottom: 11px;
+      font-size: 16px;
       text-decoration: none;
       border-bottom: 1px solid var(--accent-line);
     }
 
-    .nav-panel .btn {
-      display: inline-flex;
-      margin-top: 16px;
-      border-bottom: 0;
-    }
+    .nav-panel a:last-child { border-bottom: 0; }
   }
 
   @media (max-width: 768px) {
     .wrap { padding-left: 20px; padding-right: 20px; }
 
-    .section { padding-top: 72px; padding-bottom: 72px; }
+    .section { padding-top: 68px; padding-bottom: 68px; }
 
-    .hero { padding-top: 76px; }
+    .hero-media { min-height: 600px; }
 
-    .hero-media { min-height: 560px; }
-
-    .hero-shade {
-      background: linear-gradient(180deg, rgba(20, 15, 11, 0.74) 0%, rgba(20, 15, 11, 0.62) 48%, rgba(20, 15, 11, 0.80) 100%);
+    .slide::after {
+      background: linear-gradient(180deg, rgba(20, 15, 11, 0.72) 0%, rgba(20, 15, 11, 0.58) 46%, rgba(20, 15, 11, 0.80) 100%);
     }
 
-    .hero-body {
-      padding-top: 36px;
-      padding-bottom: 36px;
+    .hero-copy {
+      padding-top: 92px;
+      padding-bottom: 72px;
       padding-left: 24px;
       padding-right: 24px;
     }
 
-    .hero-facts { grid-template-columns: 1fr; gap: 20px; }
+    .hero-media .tab-br { display: none; }
 
-    .hero-corner { display: none; }
+    .hero-facts { grid-template-columns: 1fr; gap: 18px; margin-top: 32px; }
+
+    .arrow { display: none; }
 
     .cards { grid-template-columns: 1fr; }
 
-    .grid-6 { grid-template-columns: 1fr; }
-
     .more-list { grid-template-columns: 1fr; gap: 0; }
 
-    .feature-media { min-height: 380px; }
+    .pin-track { height: 170vh; }
+
+    .expand {
+      height: calc(58vh + 8vh * var(--p));
+      min-height: 340px;
+      width: calc(84% + 16% * var(--p));
+      border-radius: calc(70px - 54px * var(--p));
+    }
+
+    .mq-track img { height: 130px; }
 
     .footer-card {
-      padding-top: 40px;
-      padding-bottom: 32px;
-      padding-left: 24px;
-      padding-right: 24px;
+      min-height: 280px;
+      padding-left: 22px;
+      padding-right: 22px;
     }
+
+    .footer-mark { text-align: left; }
   }
 </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="wrap">
-    <div class="nav-inner">
-      <a class="brand" href="#pocetna" aria-label="Stolarija Čeko, početak strane">
-        <img src="assets/logo.png" alt="Logo Stolarije Čeko sa motivom testere i drveta">
-      </a>
+<main>
 
-      <nav class="nav-links" aria-label="Glavna navigacija">
-        <a href="#usluge">Usluge</a>
-        <a href="#vrata">Vrata</a>
-        <a href="#o-nama">O nama</a>
-        <a href="#galerija">Galerija</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-
-      <a class="btn nav-cta" href="#kontakt">
-        Pošalji upit
-        <span class="dot" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-        </span>
-      </a>
-
-      <button class="burger" id="burger" type="button" aria-label="Otvori meni" aria-expanded="false" aria-controls="navPanel">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
-      </button>
-    </div>
-
-    <div class="nav-panel" id="navPanel">
-      <a href="#usluge">Usluge</a>
-      <a href="#vrata">Vrata</a>
-      <a href="#o-nama">O nama</a>
-      <a href="#galerija">Galerija</a>
-      <a href="#kontakt">Kontakt</a>
-      <a class="btn" href="#kontakt">
-        Pošalji upit
-        <span class="dot" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-        </span>
-      </a>
-    </div>
-  </div>
-</header>
-
-<main id="pocetna">
-
-  <section class="hero">
+  <section class="hero" id="pocetna">
     <div class="wrap">
-      <div class="hero-media">
-        <img src="assets/kitchen-55_2500.jpg" alt="Bela kuhinja po meri sa ugaonim rasporedom elemenata i drvenim podom">
-        <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-shell">
 
-        <div class="hero-body">
-          <h1>Pravo drvo.<br>Prava mera.</h1>
-
-          <p class="hero-sub">Kuhinje, vrata, stepenice, kreveti i ormani koje pravimo ručno u radionici u Smederevu, po meri koju sami uzmemo kod tebe.</p>
-
-          <div class="hero-facts">
-            <div>
-              <h2>Po meri</h2>
-              <p>Merimo na licu mesta pre nego što počnemo izradu.</p>
-            </div>
-            <div>
-              <h2>Masivno drvo</h2>
-              <p>Radimo sa masivnim drvetom i pravim furnirom.</p>
-            </div>
+        <div class="hero-media">
+          <div class="slide on" data-slide>
+            <img src="assets/kitchen-55_2500.jpg" alt="Ugaona bela kuhinja po meri sa ugradnom rernom i drvenim podom">
+          </div>
+          <div class="slide" data-slide>
+            <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja po meri sa drvenom radnom pločom i visećom rasvetom">
+          </div>
+          <div class="slide" data-slide>
+            <img src="assets/id-03-example_2000.jpg" alt="Garderober po meri sa policama i drvenim pregradnim zidom">
           </div>
 
-          <div class="hero-actions">
+          <div class="hero-copy">
+            <div class="title-stack">
+              <h1 class="on" data-title>Pravo drvo.<br>Prava mera.</h1>
+              <p class="title" data-title>Kuhinja koju<br>merimo kod tebe.</p>
+              <p class="title" data-title>Ormani koji<br>koriste svaki ugao.</p>
+            </div>
+
+            <div class="hero-facts">
+              <div>
+                <h2>Po meri</h2>
+                <p>Merimo na licu mesta pre nego što počnemo izradu.</p>
+              </div>
+              <div>
+                <h2>Masivno drvo</h2>
+                <p>Radimo sa masivnim drvetom i pravim furnirom.</p>
+              </div>
+            </div>
+
             <a class="btn" href="#kontakt">
-              Pošalji upit za nameštaj
+              Pošalji upit
               <span class="dot" aria-hidden="true">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
               </span>
             </a>
           </div>
+
+          <button class="arrow arrow-prev" type="button" data-prev aria-label="Prethodna slika">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
+          </button>
+          <button class="arrow arrow-next" type="button" data-next aria-label="Sledeća slika">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+          </button>
+
+          <div class="dots" id="dots" role="tablist" aria-label="Izbor slike u herou"></div>
+
+          <a class="tab tab-br" href="#galerija">
+            Pogledaj galeriju radova
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+          </a>
         </div>
 
-        <a class="pill hero-corner" href="#galerija">
-          Pogledaj galeriju radova
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
-        </a>
+        <div class="navbar">
+          <a href="#pocetna" aria-label="Stolarija Čeko, vrh strane">
+            <img src="assets/logo.png" alt="Logo Stolarije Čeko sa motivom testere i drveta">
+          </a>
+
+          <nav class="nav-links" aria-label="Glavna navigacija">
+            <a href="#usluge">Usluge</a>
+            <a href="#vrata">Vrata</a>
+            <a href="#o-nama">O nama</a>
+            <a href="#galerija">Galerija</a>
+            <a href="#kontakt">Kontakt</a>
+          </nav>
+
+          <button class="burger" id="burger" type="button" aria-label="Otvori meni" aria-expanded="false" aria-controls="navPanel">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+          </button>
+
+          <div class="nav-panel" id="navPanel">
+            <a href="#usluge">Usluge</a>
+            <a href="#vrata">Vrata</a>
+            <a href="#o-nama">O nama</a>
+            <a href="#galerija">Galerija</a>
+            <a href="#kontakt">Kontakt</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -877,8 +962,7 @@
     <div class="wrap">
       <div class="head-row rv">
         <div>
-          <p class="eyebrow">Šta radimo</p>
-          <h2 class="h-lg" style="margin-top:16px; max-width:16ch;">Sve što se pravi od drveta, radimo u radionici.</h2>
+          <h2 class="h-lg">Nameštaj od drveta, napravljen za tvoj prostor.</h2>
           <p class="lede">Biraš drvo, dizajn i okove. Mi merimo, pravimo i montiramo, od kuhinje do poslednje police u ostavi.</p>
         </div>
 
@@ -893,16 +977,24 @@
       <div class="cards">
         <article class="card rv">
           <div class="card-media">
-            <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja po meri sa belim elementima, drvenom radnom pločom i visećom rasvetom">
-            <span class="pill">Kuhinje</span>
+            <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja po meri sa belim frontovima, drvenom radnom pločom i visećom rasvetom">
+            <span class="tab tab-tl">Kuhinje</span>
+            <a class="tab tab-br" href="#galerija">
+              Pogledaj
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+            </a>
           </div>
           <p class="card-note">Raspored elemenata prilagođavamo tvom prostoru do poslednjeg santimetra, sa drvetom, bojom i okovima po tvom izboru.</p>
         </article>
 
         <article class="card rv">
           <div class="card-media">
-            <img src="assets/doors-04-narrow_2500.jpg" alt="Niz sobnih i ulaznih vrata u različitim bojama i završnim obradama">
-            <span class="pill">Vrata</span>
+            <img src="assets/doors-04-narrow_2500.jpg" alt="Sobna i ulazna vrata u različitim bojama i završnim obradama">
+            <span class="tab tab-tl">Vrata</span>
+            <a class="tab tab-br" href="#vrata">
+              Pogledaj
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+            </a>
           </div>
           <p class="card-note">Ulazna i sobna vrata od masivnog drveta, po dimenzijama tvog stana ili kuće, sa izborom šara i završne obrade.</p>
         </article>
@@ -910,7 +1002,11 @@
         <article class="card rv">
           <div class="card-media">
             <img src="assets/id-03-example_2000.jpg" alt="Garderober po meri sa policama i drvenim pregradnim zidom u predsoblju">
-            <span class="pill">Ormani i police</span>
+            <span class="tab tab-tl">Ormani i police</span>
+            <a class="tab tab-br" href="#galerija">
+              Pogledaj
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
+            </a>
           </div>
           <p class="card-note">Garderoberi, komode i police koje iskoriste svaki ugao sobe, uključujući i one sa kosim zidovima.</p>
         </article>
@@ -918,7 +1014,7 @@
 
       <div class="more-list">
         <div class="more-item rv">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"></path><path d="M4 20V9l5-4v6l5-4v6l5-4v11"></path></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16"></path><path d="M4 20V9l5-4v6l5-4v6l5-4v11"></path></svg>
           <div>
             <h3>Stepenice od masivnog drveta</h3>
             <p>Prate tačan nagib i visinu tvog prostora, od tvrdog drveta koje traje decenijama.</p>
@@ -926,7 +1022,7 @@
         </div>
 
         <div class="more-item rv">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"></path><path d="M3 14h18"></path><path d="M3 18v2"></path><path d="M21 18v2"></path><path d="M7 10V7h10v3"></path></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"></path><path d="M3 14h18"></path><path d="M3 18v2"></path><path d="M21 18v2"></path><path d="M7 10V7h10v3"></path></svg>
           <div>
             <h3>Kreveti</h3>
             <p>Uzglavlje i ram u veličini i drvetu koje izabereš, uklopljeni u ostatak spavaće sobe.</p>
@@ -934,7 +1030,7 @@
         </div>
 
         <div class="more-item rv">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v18"></path><path d="M10 3v18"></path><path d="M16 3v18"></path><path d="M20 3v18"></path></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v18"></path><path d="M10 3v18"></path><path d="M16 3v18"></path><path d="M20 3v18"></path></svg>
           <div>
             <h3>Dekorativni zidovi</h3>
             <p>Drveni paneli i lamele koji daju toplinu prostoru, prilagođeni visini i dužini tvog zida.</p>
@@ -942,7 +1038,7 @@
         </div>
 
         <div class="more-item rv">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M8 5v14"></path></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 10h18"></path><path d="M8 5v14"></path></svg>
           <div>
             <h3>Uslužno furniranje</h3>
             <p>Furniramo postojeće ili nove komade pravim drvenim furnirom, bez pravljenja od nule.</p>
@@ -952,35 +1048,41 @@
     </div>
   </section>
 
-  <section class="section feature" id="vrata">
-    <div class="wrap">
-      <p class="eyebrow">Virtuelni alat za vrata</p>
-      <h2 class="h-lg" style="max-width:18ch; margin-left:auto; margin-right:auto;">Vidiš svoja vrata pre nego što ih naručiš</h2>
-      <p class="lede">Biraš šaru, boju i staklo, pa na ekranu vidiš kako to izgleda. Kad se odlučiš, pravimo tačno takva vrata za tvoje otvore.</p>
+  <section class="section" id="vrata">
+    <div class="wrap center">
+      <p class="eyebrow rv">Skroluj da vidiš kako radi</p>
+      <h2 class="h-lg rv" style="margin-top:10px; max-width:17ch; margin-left:auto; margin-right:auto;">Vidiš svoja vrata pre nego što ih naručiš</h2>
+      <p class="lede rv" style="margin-top:16px; max-width:66ch;">Biraš šaru, boju i staklo, pa na ekranu vidiš kako to izgleda. Kad se odlučiš, pravimo tačno takva vrata za tvoje otvore.</p>
+    </div>
 
-      <div class="feature-media rv">
+  </section>
+
+  <div class="pin-track" id="pinTrack">
+    <div class="pin-stage">
+      <div class="wrap">
+      <div class="expand" id="expand">
         <img src="assets/doors-02-narrow_2500.jpg" alt="Četiri modela sobnih vrata sa različitim šarama, staklom i bojama drveta">
-        <div class="feature-shade" aria-hidden="true"></div>
-
-        <div class="feature-body">
-          <span class="pill">Kako radi</span>
-          <h3 class="h-md">Izaberi šaru, boju i staklo</h3>
-          <a class="btn btn-ghost" href="#">
+        <div class="expand-body">
+          <span class="chip">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle></svg>
+            Virtuelni alat
+          </span>
+          <p class="title">Izaberi šaru,<br>boju i staklo</p>
+          <a class="btn-line" href="#">
             Otvori alat za dizajn vrata
-            <span class="dot" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"></path><path d="M8 7h9v9"></path></svg>
           </a>
         </div>
       </div>
+      </div>
     </div>
-  </section>
+  </div>
 
   <section class="section" id="o-nama">
     <div class="wrap">
       <div class="rv">
-        <p class="eyebrow">O nama</p>
-        <h2 class="h-lg" style="margin-top:16px; max-width:20ch;">Radimo sa drvetom svaki dan, ne sklapamo gotove elemente.</h2>
+        <h2 class="h-lg">O nama</h2>
+        <p class="lede" style="margin-top:12px;">Stolarija Čeko iz Smedereva. Radimo sa drvetom svaki dan i ne sklapamo gotove elemente iz kataloga.</p>
       </div>
 
       <div class="about-grid">
@@ -993,25 +1095,25 @@
             <div class="acc-item open">
               <button class="acc-head" type="button" aria-expanded="true">
                 Kako radimo
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="bar-v" d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="bar-v" d="M12 5v14"></path><path d="M5 12h14"></path></svg>
               </button>
-              <div class="acc-panel">Dođemo kod tebe i uzmemo meru na licu mesta pre nego što počnemo izradu. Tek onda crtamo raspored, biramo drvo i okove i dogovaramo rok.</div>
+              <div class="acc-panel"><div>Dođemo kod tebe i uzmemo meru na licu mesta pre nego što počnemo izradu. Tek onda crtamo raspored, biramo drvo i okove i dogovaramo rok.</div></div>
             </div>
 
             <div class="acc-item">
               <button class="acc-head" type="button" aria-expanded="false">
                 Materijali
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="bar-v" d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="bar-v" d="M12 5v14"></path><path d="M5 12h14"></path></svg>
               </button>
-              <div class="acc-panel">Radimo isključivo sa masivnim drvetom i pravim furnirom. Ne prodajemo ono što ne bismo stavili u svoju kuću.</div>
+              <div class="acc-panel"><div>Radimo isključivo sa masivnim drvetom i pravim furnirom. Ne prodajemo ono što ne bismo stavili u svoju kuću.</div></div>
             </div>
 
             <div class="acc-item">
               <button class="acc-head" type="button" aria-expanded="false">
                 Montaža i rokovi
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="bar-v" d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="bar-v" d="M12 5v14"></path><path d="M5 12h14"></path></svg>
               </button>
-              <div class="acc-panel">Montažu radi ista ekipa koja je nameštaj i napravila. Ne obećavamo rokove koje ne možemo da ispunimo.</div>
+              <div class="acc-panel"><div>Montažu radi ista ekipa koja je nameštaj i napravila. Ne obećavamo rokove koje ne možemo da ispunimo.</div></div>
             </div>
           </div>
         </div>
@@ -1020,49 +1122,71 @@
   </section>
 
   <section class="section" id="galerija">
-    <div class="wrap">
-      <div class="gallery-head rv">
-        <p class="eyebrow">Galerija radova</p>
-        <h2 class="h-lg" style="max-width:18ch; margin-left:auto; margin-right:auto;">Deo onoga što smo do sada napravili</h2>
-        <p class="lede">Kuhinje, vrata, kreveti i ormani isporučeni domaćinstvima u Smederevu i okolini.</p>
+    <div class="wrap center">
+      <p class="eyebrow rv">Rađeno rukom, komad po komad</p>
+      <h2 class="h-lg rv" style="margin-top:10px; max-width:19ch; margin-left:auto; margin-right:auto;">Deo onoga što smo do sada napravili</h2>
+      <p class="lede rv" style="margin-top:16px; max-width:70ch;">Kuhinje, vrata, kreveti i ormani isporučeni domaćinstvima u Smederevu i okolini. Sve mereno na licu mesta i montirano kod kupca.</p>
+    </div>
+
+    <div class="mq-wrap">
+      <div class="mq mq-1">
+        <div class="mq-track">
+          <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja sa belim frontovima i drvenom radnom pločom">
+          <img src="assets/doors-02-narrow_2500.jpg" alt="Sobna vrata sa staklenim poljima">
+          <img src="assets/work_bed-05.4_1600.jpg" alt="Krevet od masivnog drveta sa uzglavljem">
+          <img src="assets/kitchen-55_2500.jpg" alt="Ugaona bela kuhinja po meri">
+          <img src="assets/id-03-example_2000.jpg" alt="Garderober po meri sa policama">
+          <img src="assets/doors-04-narrow_2500.jpg" alt="Niz sobnih vrata u različitim obradama">
+          <img src="assets/kitchen-41_1200.jpg" alt="">
+          <img src="assets/doors-02-narrow_2500.jpg" alt="">
+          <img src="assets/doors-04-narrow_2500.jpg" alt="">
+          <img src="assets/kitchen-55_2500.jpg" alt="">
+          <img src="assets/id-03-example_2000.jpg" alt="">
+          <img src="assets/doors-04-narrow_2500.jpg" alt="">
+        </div>
       </div>
 
-      <div class="grid-6">
-        <div class="shot rv">
-          <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja sa belim frontovima i drvenom radnom pločom">
-          <span>Kuhinja po meri</span>
+      <div class="mq mq-2">
+        <div class="mq-track">
+          <img src="assets/id-03-example_2000.jpg" alt="Pregradni drveni zid sa ugradnim policama">
+          <img src="assets/kitchen-55_2500.jpg" alt="Kuhinja sa ugradnom rernom i radnom pločom">
+          <img src="assets/doors-04-narrow_2500.jpg" alt="Ulazna vrata od punog drveta">
+          <img src="assets/work_bed-05.4_1600.jpg" alt="Bračni krevet sa noćnim ormarićima">
+          <img src="assets/doors-02-narrow_2500.jpg" alt="Zastakljena sobna vrata">
+          <img src="assets/kitchen-41_1200.jpg" alt="Kuhinjski elementi po meri prostora">
+          <img src="assets/id-03-example_2000.jpg" alt="">
+          <img src="assets/kitchen-55_2500.jpg" alt="">
+          <img src="assets/doors-04-narrow_2500.jpg" alt="">
+          <img src="assets/doors-04-narrow_2500.jpg" alt="">
+          <img src="assets/doors-02-narrow_2500.jpg" alt="">
+          <img src="assets/kitchen-41_1200.jpg" alt="">
         </div>
-        <div class="shot rv">
-          <img src="assets/kitchen-55_2500.jpg" alt="Ugaona bela kuhinja sa ugradnom rernom i staklenom zaštitom">
-          <span>Ugaona kuhinja</span>
-        </div>
-        <div class="shot rv">
-          <img src="assets/doors-04-narrow_2500.jpg" alt="Sobna vrata u beloj i drvenoj završnoj obradi">
-          <span>Sobna vrata</span>
-        </div>
-        <div class="shot rv">
-          <img src="assets/doors-02-narrow_2500.jpg" alt="Ulazna vrata od punog drveta sa staklenim poljima">
-          <span>Ulazna vrata</span>
-        </div>
-        <div class="shot rv">
-          <img src="assets/work_bed-05.4_1600.jpg" alt="Bračni krevet od masivnog drveta sa uzglavljem i noćnim ormarićima">
-          <span>Krevet sa uzglavljem</span>
-        </div>
-        <div class="shot rv">
-          <img src="assets/id-03-example_2000.jpg" alt="Garderober po meri sa policama i drvenim pregradnim zidom">
-          <span>Garderober po meri</span>
+      </div>
+
+      <div class="mq mq-3">
+        <div class="mq-track">
+          <img src="assets/work_bed-05.4_1600.jpg" alt="Krevet sa drvenim ramom i uzglavljem">
+          <img src="assets/doors-04-narrow_2500.jpg" alt="Bela sobna vrata sa dekorativnim poljima">
+          <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja sa drvenim detaljima i belim frontovima">
+          <img src="assets/id-03-example_2000.jpg" alt="Garderober sa otvorenim policama">
+          <img src="assets/kitchen-55_2500.jpg" alt="Ugaona kuhinja sa radnom pločom">
+          <img src="assets/doors-02-narrow_2500.jpg" alt="Furnirana sobna vrata">
+          <img src="assets/doors-04-narrow_2500.jpg" alt="">
+          <img src="assets/doors-04-narrow_2500.jpg" alt="">
+          <img src="assets/kitchen-41_1200.jpg" alt="">
+          <img src="assets/id-03-example_2000.jpg" alt="">
+          <img src="assets/kitchen-55_2500.jpg" alt="">
+          <img src="assets/doors-02-narrow_2500.jpg" alt="">
         </div>
       </div>
     </div>
   </section>
 
   <section class="section contact" id="kontakt">
-    <div class="wrap">
-      <div class="contact-head rv">
-        <p class="eyebrow">Kontakt</p>
-        <h2 class="h-lg" style="max-width:16ch; margin-left:auto; margin-right:auto;">Javi nam se i dogovaramo meru</h2>
-        <p class="lede">Opiši šta ti treba - kuhinja, vrata, krevet ili nešto peto. Javljamo se da dogovorimo izlazak na teren i uzimanje mere.</p>
-      </div>
+    <div class="wrap center">
+      <p class="eyebrow rv">Merimo u Smederevu i okolini</p>
+      <h2 class="h-lg rv" style="margin-top:10px; max-width:16ch; margin-left:auto; margin-right:auto;">Javi nam se i dogovaramo meru</h2>
+      <p class="lede rv" style="margin-top:16px; max-width:64ch;">Opiši šta ti treba - kuhinja, vrata, krevet ili nešto peto. Javljamo se da dogovorimo izlazak na teren i uzimanje mere.</p>
 
       <form class="form rv" action="#" method="post">
         <div class="field">
@@ -1095,10 +1219,17 @@
 <footer class="footer">
   <div class="wrap">
     <div class="footer-card">
-      <p class="mark">Stolarija Čeko</p>
-      <p class="sub">Nameštaj od masivnog drveta po meri. Radionica u Smederevu, izlazak na teren u Smederevu i okolini.</p>
+      <img src="assets/doors-04-narrow_2500.jpg" alt="">
 
-      <div class="footer-row">
+      <div class="footer-top">
+        <span class="footer-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+          Radionica u Smederevu
+        </span>
+        <p class="footer-mark">Stolarija<br>Čeko</p>
+      </div>
+
+      <div class="footer-bottom">
         <nav class="footer-nav" aria-label="Navigacija u podnožju">
           <a href="#usluge">Usluge</a>
           <a href="#vrata">Vrata</a>
@@ -1106,14 +1237,54 @@
           <a href="#galerija">Galerija</a>
           <a href="#kontakt">Kontakt</a>
         </nav>
-        <p>Stolarija Čeko, Smederevo. Sva prava zadržana.</p>
+        <p style="font-size:13px; opacity:0.85;">Nameštaj od masivnog drveta po meri</p>
       </div>
     </div>
+
+    <p class="footer-note">Stolarija Čeko, Smederevo. Sva prava zadržana.</p>
   </div>
 </footer>
 
 <script>
   (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* hero slider */
+    var slides = [].slice.call(document.querySelectorAll('[data-slide]'));
+    var titles = [].slice.call(document.querySelectorAll('[data-title]'));
+    var dotsBox = document.getElementById('dots');
+    var cur = 0;
+    var timer = null;
+
+    slides.forEach(function (s, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', 'Slika ' + (i + 1));
+      if (i === 0) b.className = 'on';
+      b.addEventListener('click', function () { go(i); rearm(); });
+      dotsBox.appendChild(b);
+    });
+
+    var dots = [].slice.call(dotsBox.children);
+
+    function go(n) {
+      cur = (n + slides.length) % slides.length;
+      slides.forEach(function (s, i) { s.classList.toggle('on', i === cur); });
+      titles.forEach(function (t, i) { t.classList.toggle('on', i === cur); });
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === cur); });
+    }
+
+    function rearm() {
+      if (timer) clearInterval(timer);
+      if (!reduce) timer = setInterval(function () { go(cur + 1); }, 6500);
+    }
+
+    document.querySelector('[data-prev]').addEventListener('click', function () { go(cur - 1); rearm(); });
+    document.querySelector('[data-next]').addEventListener('click', function () { go(cur + 1); rearm(); });
+    rearm();
+
+    /* mobilni meni */
     var burger = document.getElementById('burger');
     var panel = document.getElementById('navPanel');
 
@@ -1131,6 +1302,7 @@
       }
     });
 
+    /* akordeon */
     var acc = document.getElementById('acc');
     acc.addEventListener('click', function (e) {
       var head = e.target.closest('.acc-head');
@@ -1140,6 +1312,36 @@
       head.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
+    /* slika koja se širi na skrol */
+    var exp = document.getElementById('expand');
+    var track = document.getElementById('pinTrack');
+    var ticking = false;
+
+    function setProgress() {
+      ticking = false;
+      var r = track.getBoundingClientRect();
+      var vh = window.innerHeight || 800;
+      var travel = r.height - vh;
+      var p = travel > 0 ? (-r.top) / travel : 1;
+      if (p < 0) p = 0;
+      p = p / 0.78;
+      if (p > 1) p = 1;
+      exp.style.setProperty('--p', p.toFixed(3));
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(setProgress);
+    }
+
+    if (!reduce) {
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      setProgress();
+    }
+
+    /* suptilan reveal */
     if (!('IntersectionObserver' in window)) return;
 
     var items = document.querySelectorAll('.rv');
@@ -1149,11 +1351,10 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.remove('pending');
-          entry.target.classList.add('in');
           io.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px -8% 0px' });
+    }, { rootMargin: '0px 0px -6% 0px' });
 
     items.forEach(function (el) { io.observe(el); });
   })();
