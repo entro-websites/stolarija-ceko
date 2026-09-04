@@ -180,23 +180,16 @@
   .tab-tl { top: 0; left: 0; border-radius: var(--r-card) 0 var(--r-card) 0; }
   .tab-br { right: 0; bottom: 0; border-radius: var(--r-card) 0 var(--r-card) 0; }
 
-  .hero-media .tab-br { border-radius: var(--r-card) 0 0 0; }
 
   /* ---------- hero ---------- */
 
-  .hero { padding-top: 0; }
-
-  .hero .wrap {
-    max-width: none;
-    padding-left: 0;
-    padding-right: 0;
-  }
+  .hero { padding-top: 20px; }
 
   .hero-shell { position: relative; }
 
   .hero-media {
     position: relative;
-    border-radius: 0;
+    border-radius: var(--r-media);
     overflow: hidden;
     min-height: 820px;
     display: flex;
@@ -634,16 +627,16 @@
 
   .footer-card {
     position: relative;
-    border-radius: 0;
+    border-radius: var(--r-media);
     overflow: hidden;
-    min-height: 320px;
+    min-height: 340px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 32px;
-    padding-bottom: 32px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-top: 28px;
+    padding-bottom: 26px;
+    padding-left: 32px;
+    padding-right: 32px;
     color: #fff;
   }
 
@@ -707,10 +700,13 @@
   .footer-nav a:hover { opacity: 1; }
 
   .footer-note {
-    margin-top: 16px;
-    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 12.5px;
-    color: var(--text-faint);
+    color: rgba(255, 255, 255, 0.72);
   }
 
   /* ---------- nav ---------- */
@@ -718,7 +714,8 @@
   .navbar {
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 10;
     display: flex;
     align-items: center;
@@ -728,7 +725,7 @@
     padding-left: 20px;
     padding-right: 28px;
     background: var(--surface);
-    border-radius: 0 0 22px 0;
+    border-radius: 0 0 22px 22px;
   }
 
   .navbar img { height: 34px; width: auto; }
@@ -780,6 +777,7 @@
     .navbar {
       left: 0;
       right: 0;
+      transform: none;
       justify-content: space-between;
       gap: 16px;
       padding-right: 12px;
@@ -866,7 +864,7 @@
       padding-right: 22px;
     }
 
-    .footer-note { margin-top: 14px; }
+    .footer-note { margin-top: 16px; }
 
     .footer-mark { text-align: left; }
   }
@@ -1132,7 +1130,8 @@
       <p class="lede rv" style="margin-top:16px; max-width:70ch;">Kuhinje, vrata, kreveti i ormani isporučeni domaćinstvima u Smederevu i okolini. Sve mereno na licu mesta i montirano kod kupca.</p>
     </div>
 
-    <div class="mq-wrap">
+    <div class="wrap">
+      <div class="mq-wrap">
       <div class="mq mq-1">
         <div class="mq-track">
           <img src="assets/kitchen-41_1200.jpg" alt="Kuhinja sa belim frontovima i drvenom radnom pločom">
@@ -1183,6 +1182,7 @@
           <img src="assets/doors-02-narrow_2500.jpg" alt="">
         </div>
       </div>
+      </div>
     </div>
   </section>
 
@@ -1221,7 +1221,8 @@
 </main>
 
 <footer class="footer">
-  <div class="footer-card">
+  <div class="wrap">
+    <div class="footer-card">
       <img src="assets/doors-04-narrow_2500.jpg" alt="">
 
       <div class="footer-top">
@@ -1242,10 +1243,9 @@
         </nav>
         <p style="font-size:13px; opacity:0.85;">Nameštaj od masivnog drveta po meri</p>
       </div>
-  </div>
 
-  <div class="wrap">
-    <p class="footer-note">Stolarija Čeko, Smederevo. Sva prava zadržana.</p>
+      <p class="footer-note">Stolarija Čeko, Smederevo. Sva prava zadržana.</p>
+    </div>
   </div>
 </footer>
 
